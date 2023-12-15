@@ -1,4 +1,5 @@
 {
+  // TODO: fix top-level property
   "plugins": ["prettier", "html"],
   "parserOptions": {
     "sourceType": "module"
