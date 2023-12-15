@@ -1,5 +1,8 @@
 {
-  "plugins": ["prettier"],
+  "plugins": ["prettier", "html"],
+  "parserOptions": {
+    "sourceType": "module"
+  },
   "settings": {
     "import/resolver": {
       "typescript": {}
