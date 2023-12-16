@@ -1,3 +1,7 @@
+import Handlebars from 'handlebars';
+import * as Entities from './entities';
 import './index.scss';
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `<h1>Спринт 1</h1>`;
+const renderedButton = Handlebars.compile(Entities.Button)({ label: 'Зарегистрироваться', type: 'primary' });
+
+document.querySelector<HTMLDivElement>('#app')!.innerHTML = renderedButton;
