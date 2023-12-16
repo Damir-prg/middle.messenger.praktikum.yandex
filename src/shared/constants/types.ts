@@ -1,7 +1,6 @@
 type TRequestError = {
   status: number;
   message: string;
-  backButtonLabel: string;
 };
 
 export type TErrorStatusList = {
