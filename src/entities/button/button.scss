@@ -17,6 +17,12 @@
     background: rgba($color: $primary, $alpha: 0.9);
     color: $lightText;
 
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 13px;
+    letter-spacing: 0em;
+    text-align: center;
+
     &:hover {
       background: $primary;
     }
@@ -37,28 +43,9 @@
     border: none;
     color: $primary;
 
-    &::after,
-    &::before {
-      content: '';
-      position: absolute;
-      top: 100%;
-      background: $primary;
-      height: 2px;
-      transition: width 0.2s ease;
-      width: 0%;
-    }
-
-    &::after {
-      right: 50%;
-    }
-
-    &::before {
-      left: 50%;
-    }
-
-    &:hover::after,
-    &:hover::before {
-      width: 50%;
-    }
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 11px;
+    letter-spacing: 0em;
   }
 }
