@@ -14,19 +14,19 @@
 
   cursor: pointer;
 
-  &__top {
+  &_top {
     transform: rotate(0);
   }
 
-  &__right {
+  &_right {
     transform: rotate(90deg);
   }
 
-  &__left {
+  &_left {
     transform: rotate(-90deg);
   }
 
-  &__bottom {
+  &_bottom {
     transform: rotate(180deg);
   }
 }
