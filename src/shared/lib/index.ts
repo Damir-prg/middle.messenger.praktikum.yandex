@@ -1,0 +1,1 @@
+export { initialComponents } from './initialComponents';

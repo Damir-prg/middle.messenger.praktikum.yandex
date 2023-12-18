@@ -1,10 +1,7 @@
 import './index.scss';
-import Handlebars from 'handlebars';
-import * as Entities from './entities';
+import { initialComponents } from 'shared/lib';
 import { PageServerError } from './pages';
 
-Object.entries(Entities).forEach(([name, entity]) => {
-  Handlebars.registerPartial(name, entity);
-});
+initialComponents();
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = PageServerError();

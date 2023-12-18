@@ -1,6 +1,6 @@
 import Handlebars from 'handlebars';
 import { errorStatuses } from 'shared/constants';
-import { ErrorPageLayout } from 'entities/index';
+import { ErrorPageLayout } from 'features/index';
 
 const { status, message } = errorStatuses.pageNotFounded;
 
