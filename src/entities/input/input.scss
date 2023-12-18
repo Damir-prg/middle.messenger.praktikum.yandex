@@ -37,4 +37,10 @@
     left: 0;
     font-size: 0.8rem;
   }
+
+  &__validate {
+    margin-top: 4px;
+    color: $validateText;
+    font-size: 0.7rem;
+  }
 }
