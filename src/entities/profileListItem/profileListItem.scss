@@ -1,4 +1,6 @@
 .profile-list-item {
+  list-style-type: none;
+
   width: 100%;
   max-width: 510px;
   padding: 10px 0;
@@ -14,7 +16,7 @@
   letter-spacing: 0em;
   text-align: right;
 
-  &__right {
+  &__secondary {
     color: $secondary;
   }
 }
