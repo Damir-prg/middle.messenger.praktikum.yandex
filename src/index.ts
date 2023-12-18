@@ -1,7 +1,7 @@
 import './index.scss';
 import { initialComponents } from 'shared/lib';
-import { PageServerError } from './pages';
+import { PageServerError, LoginPage } from './pages';
 
 initialComponents();
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = PageServerError();
+document.querySelector<HTMLDivElement>('#app')!.innerHTML = LoginPage();
