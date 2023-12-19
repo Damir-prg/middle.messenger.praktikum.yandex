@@ -1,4 +1,4 @@
-.profile-list {
+.profile-ul {
   width: 510px;
   display: flex;
   flex-direction: column;
@@ -6,12 +6,12 @@
   justify-content: flex-start;
   gap: 0;
 
-  .profile-list-item {
+  & > * {
     border: none;
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid $borderColor;
   }
 
-  .profile-list-item:last-child {
+  & > *:last-child {
     border-bottom: none;
   }
 }
