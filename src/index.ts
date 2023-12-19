@@ -1,6 +1,7 @@
 import './index.scss';
 import { initialComponents } from 'shared/lib';
-import { PageServerError, LoginPage, AuthorizePage, ProfileEditPage, ProfilePasswordsPage, ProfilePage } from './pages';
+import { ProfilePage } from './pages';
+console.log('first');
 
 initialComponents();
 
