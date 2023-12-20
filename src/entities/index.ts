@@ -7,3 +7,4 @@ export { ProfileUl } from './profileUl';
 export { ProfileLi } from './profileLi';
 export { Modal } from './modal';
 export { ChatLi } from './chatLi';
+export { ChatUl } from './chatUl';

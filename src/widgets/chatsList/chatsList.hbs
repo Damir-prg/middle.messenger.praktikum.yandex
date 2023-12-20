@@ -1,0 +1,5 @@
+{{#>ChatUl }}
+   {{#each (chats)}}
+         {{>ChatLi userName=userName lastMessage=lastMessage time=time unreadedCount=unreadedCount}}
+   {{/each}}
+{{/ChatUl}}

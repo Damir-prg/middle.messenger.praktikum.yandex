@@ -5,3 +5,4 @@ export { AuthorizePage } from './authorizePage';
 export { ProfileEditPage } from './profileEditPage';
 export { ProfilePasswordsPage } from './profilePasswordsPage';
 export { ProfilePage } from './profilePage';
+export { ChatsPage } from './chatsPage';

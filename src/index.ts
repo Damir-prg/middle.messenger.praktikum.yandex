@@ -1,7 +1,7 @@
 import './index.scss';
 import { initialComponents } from 'shared/lib';
-import { ProfileEditPage } from './pages';
+import { ChatsPage } from './pages';
 
 initialComponents();
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = ProfileEditPage();
+document.querySelector<HTMLDivElement>('#app')!.innerHTML = ChatsPage();
