@@ -22,7 +22,11 @@
     justify-content: center;
 
     overflow: hidden;
-    cursor: pointer;
+
+    &_pointer {
+      @extend .profile-image__avatar;
+      cursor: pointer;
+    }
 
     &-hover {
       position: absolute;

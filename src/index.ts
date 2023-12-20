@@ -1,8 +1,7 @@
 import './index.scss';
 import { initialComponents } from 'shared/lib';
-import { ProfilePage } from './pages';
-console.log('first');
+import { ProfileEditPage } from './pages';
 
 initialComponents();
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = ProfilePage();
+document.querySelector<HTMLDivElement>('#app')!.innerHTML = ProfileEditPage();
