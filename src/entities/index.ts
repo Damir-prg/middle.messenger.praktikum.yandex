@@ -6,3 +6,4 @@ export { ProfileImage } from './profileImage';
 export { ProfileUl } from './profileUl';
 export { ProfileLi } from './profileLi';
 export { Modal } from './modal';
+export { ChatLi } from './chatLi';
