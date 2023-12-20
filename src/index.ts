@@ -1,7 +1,16 @@
 import './index.scss';
 import { initialComponents } from 'shared/lib';
-import { ChatsPage } from './pages';
+import {
+  ChatsPage,
+  AuthorizePage,
+  LoginPage,
+  PageNotFounded,
+  PageServerError,
+  ProfileEditPage,
+  ProfilePage,
+  ProfilePasswordsPage,
+} from './pages';
 
 initialComponents();
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = ChatsPage();
+document.querySelector<HTMLDivElement>('#app')!.innerHTML = ProfilePasswordsPage();
