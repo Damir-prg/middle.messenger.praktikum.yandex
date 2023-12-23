@@ -78,11 +78,18 @@
   }
 
   &__content {
-    @extend .flex-col-to-top;
+    &_center {
+      @extend .flex-col-center;
+    }
+
+    &_top {
+      @extend .flex-col-to-top;
+    }
+
     flex-grow: 1;
 
     height: 100%;
 
-    padding: 8px;
+    padding: 10px 20px;
   }
 }

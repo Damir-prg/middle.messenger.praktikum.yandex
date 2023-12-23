@@ -1,7 +1,8 @@
 import {
   AuthorizePage,
-  ChatsPage,
+  UnselectedChatsPage,
   LoginPage,
+  SelectedChatPage,
   PageNotFounded,
   PageServerError,
   ProfileEditPage,
@@ -14,7 +15,8 @@ initialComponents();
 
 const Routes = {
   auth: AuthorizePage(),
-  chats: ChatsPage(),
+  unselectedChat: UnselectedChatsPage(),
+  selectedChat: SelectedChatPage(),
   login: LoginPage(),
   notFounded: PageNotFounded(),
   serverError: PageServerError(),

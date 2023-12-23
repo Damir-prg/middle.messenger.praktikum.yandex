@@ -8,3 +8,4 @@ export { ProfileLi } from './profileLi';
 export { Modal } from './modal';
 export { ChatLi } from './chatLi';
 export { ChatUl } from './chatUl';
+export { ChatDialogHeader } from './chatDialogHeader';

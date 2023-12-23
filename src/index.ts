@@ -7,7 +7,7 @@ function navigate(page: string) {
   container.innerHTML = routeHandler(page);
 }
 
-document.addEventListener('DOMContentLoaded', () => navigate('chats'));
+document.addEventListener('DOMContentLoaded', () => navigate('selectedChat'));
 
 document.addEventListener('click', (event) => {
   const target = event.target as HTMLButtonElement;
