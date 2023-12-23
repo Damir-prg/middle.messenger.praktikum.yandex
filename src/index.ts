@@ -1,5 +1,5 @@
 import './index.scss';
-import { navigate } from 'app/routes';
+import { navigate } from 'shared/lib';
 
 document.addEventListener('DOMContentLoaded', () => navigate('selectedChat'));
 

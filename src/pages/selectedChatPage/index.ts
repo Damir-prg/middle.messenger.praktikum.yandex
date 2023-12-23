@@ -1,6 +1,6 @@
 import Handlebars from 'handlebars';
 import { default as SelectedChatPageHbs } from './selectedChatPage.hbs?raw';
-import { navigate } from 'app/routes';
+import { navigate } from 'shared/lib';
 
 export const SelectedChatPage = () => {
   const KEY_ESC = 'Escape';

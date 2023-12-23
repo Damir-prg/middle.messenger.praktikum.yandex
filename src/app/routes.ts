@@ -13,7 +13,7 @@ import { initialComponents } from 'shared/lib';
 
 initialComponents();
 
-const Routes = {
+export const Routes = {
   auth: AuthorizePage(),
   unselectedChat: UnselectedChatsPage(),
   selectedChat: SelectedChatPage(),
@@ -24,18 +24,3 @@ const Routes = {
   profilePasswordsEdit: ProfilePasswordsPage(),
   profile: ProfilePage(),
 };
-
-const routeHandler = (page: string): string => {
-  const choisedRoute = Routes[page as keyof typeof Routes];
-
-  if (choisedRoute === undefined) {
-    return Routes['notFounded'];
-  }
-
-  return choisedRoute;
-};
-
-export function navigate(page: string) {
-  const container = document.getElementById('app')!;
-  container.innerHTML = routeHandler(page);
-}
