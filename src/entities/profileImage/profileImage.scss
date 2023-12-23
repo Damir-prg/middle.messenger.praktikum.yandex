@@ -22,7 +22,7 @@
       cursor: pointer;
     }
 
-    &-hover {
+    &__hover {
       @extend .text-13-500;
       @extend .absolute-center;
       padding: 50px 30px;
@@ -33,16 +33,16 @@
       color: $white;
       background: rgba($color: $dark, $alpha: 0.5);
 
-      transition: 0.15 ease;
+      transition: all 0.15 ease;
       opacity: 0;
     }
 
-    &:hover &-hover {
+    &:hover &__hover {
       opacity: 1;
     }
   }
 
-  &__avatar-hover:hover {
+  &__avatar__hover:hover {
     visibility: visible;
   }
 
