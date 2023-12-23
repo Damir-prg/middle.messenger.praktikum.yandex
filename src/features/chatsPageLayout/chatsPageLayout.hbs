@@ -11,9 +11,9 @@
             </div>
             <input class="chats-page__search" type="search" name="search" placeholder="Поиск" id="">
         </header>
-        <div class="chats-page__chat-list">
+        <nav class="chats-page__chat-list">
             {{>ChatsList}}
-        </div>
+        </nav>
     </aside>
     <section class="chats-page__content chats-page__content_{{direction}}">
         {{> @partial-block }}

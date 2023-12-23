@@ -9,3 +9,4 @@ export { Modal } from './modal';
 export { ChatLi } from './chatLi';
 export { ChatUl } from './chatUl';
 export { ChatDialogHeader } from './chatDialogHeader';
+export { ChatDialogMessagesWrapper } from './chatDialogMessagesWrapper';

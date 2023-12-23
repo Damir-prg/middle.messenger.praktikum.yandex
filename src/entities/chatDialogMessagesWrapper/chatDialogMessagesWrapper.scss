@@ -1,0 +1,11 @@
+.chat-dialog {
+  @extend .flex-col-to-bottom;
+  width: 100%;
+
+  flex-grow: 1;
+
+  padding-bottom: 30px;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+}

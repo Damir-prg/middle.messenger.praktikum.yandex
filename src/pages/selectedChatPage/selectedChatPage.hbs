@@ -1,3 +1,8 @@
 {{#>ChatsPageLayout direction="top"}}
    {{>ChatDialogHeader userName=userName}}
+   {{#>ChatDialogMessagesWrapper }}
+      {{#each messages}}
+         <span>message</span>
+      {{/each}}
+   {{/ChatDialogMessagesWrapper}}
 {{/ChatsPageLayout}}
