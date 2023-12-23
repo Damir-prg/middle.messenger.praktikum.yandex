@@ -2,62 +2,86 @@
 
   {{#>ProfileLi}}
     <span>Почта</span>
-    {{> Input isProfile=true
+    {{#if isEdit}}
+       {{> Input isProfile=true
           type='email'
           name='email'
           id='email'
           value='pochta@yandex.ru'
           placeholder='Введите почту'}}
+          {{else}}
+      <span>pochta@yandex.ru</span>
+    {{/if}}
   {{/ProfileLi}}
 
   {{#>ProfileLi}}
     <span>Логин</span>
-    {{> Input isProfile=true
+    {{#if isEdit}}
+       {{> Input isProfile=true
           type='text'
           name='text'
           id='text'
           value='ivanivanov'
           placeholder='Введите логин'}}
+       {{else}}
+          <span>ivanivanov</span>
+    {{/if}}
   {{/ProfileLi}}
   
   {{#>ProfileLi}}
     <span>Имя</span>
-    {{> Input isProfile=true
+    {{#if isEdit}}
+       {{> Input isProfile=true
           type='text'
           name='text'
           id='text'
           value='Иван'
           placeholder='Введите имя'}}
+      {{else}}
+         <span>Иван</span>
+    {{/if}}
   {{/ProfileLi}}
 
   {{#>ProfileLi}}
     <span>Фамилия</span>
-    {{> Input isProfile=true
+    {{#if isEdit}}
+       {{> Input isProfile=true
           type='text'
           name='text'
           id='text'
           value='Иванов'
-          placeholder='Введите фамилию'}}  
+          placeholder='Введите фамилию'}} 
+      {{else}}
+         <span>Иванов</span>
+    {{/if}} 
     
   {{/ProfileLi}}
 
   {{#>ProfileLi}}
     <span>Имя в чате</span>
-    {{> Input isProfile=true
+    {{#if isEdit}}
+       {{> Input isProfile=true
           type='text'
           name='text'
           id='text'
           value='Иван'
           placeholder='Введите никнейм'}} 
+      {{else}}
+         <span>Иван</span>
+    {{/if}}
   {{/ProfileLi}}
 
   {{#>ProfileLi}}
     <span>Телефон</span>
-    {{> Input isProfile=true
+    {{#if isEdit}}
+       {{> Input isProfile=true
           type='tel'
           name='text'
           id='text'
           value='+7 (909) 967 30 30'
           placeholder='Введите номер телефона'}} 
+      {{else}}
+         <span>+7 (909) 967 30 30</span>
+    {{/if}}
   {{/ProfileLi}}
 {{/ProfileUl}}
