@@ -38,6 +38,18 @@
     }
   }
 
+  &_secondary {
+    @extend .flex-row-center-right;
+    gap: 8px;
+
+    background: transparent;
+
+    border: none;
+
+    text-align: right;
+    color: $secondary;
+  }
+
   &_link {
     @extend .text-11-500;
     background: transparent;

@@ -1,12 +1,28 @@
 {{#if isArrow}}
   <button class='button button_arrow button_{{direction}} {{className}}' data-navigate='{{page}}'>
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16px' height='16px'><path
-        d='m26.71 10.29-10-10a1 1 0 0 0-1.41 0l-10 10 1.41 1.41L15 3.41V32h2V3.41l8.29 8.29z'
-      />
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      viewBox='0 0 32 32'
+      width='16px'
+      height='16px'
+      data-navigate='{{page}}'
+    ><path d='m26.71 10.29-10-10a1 1 0 0 0-1.41 0l-10 10 1.41 1.41L15 3.41V32h2V3.41l8.29 8.29z' />
     </svg>
   </button>
 {{else}}
   <button class='button button_{{type}} {{className}}' data-navigate='{{page}}'>
     {{label}}
+    {{#if isRoadTo}}
+      <svg
+        width='6'
+        height='10'
+        viewBox='0 0 6 10'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+        data-navigate='{{page}}'
+      >
+        <path d='M1 9L5 5L1 1' stroke='#999999' />
+      </svg>
+    {{/if}}
   </button>
 {{/if}}
