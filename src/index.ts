@@ -13,4 +13,4 @@ import {
 
 initialComponents();
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = ProfilePasswordsPage();
+document.querySelector<HTMLDivElement>('#app')!.innerHTML = ProfilePage();

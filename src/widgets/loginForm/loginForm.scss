@@ -1,17 +1,14 @@
 .inputs-list {
+  @extend .flex-col-to-top;
   flex-grow: 1;
+
   width: 100%;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
   gap: 16px;
 }
 
 .buttons {
-  display: flex;
-  flex-direction: column;
+  @extend .flex-col-to-top;
   gap: 14px;
   width: 100%;
 }

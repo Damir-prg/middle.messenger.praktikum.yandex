@@ -1,15 +1,13 @@
 .profile-ul {
+  @extend .flex-col-to-top;
   width: 100%;
   max-width: 510px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+
   gap: 0;
 
   & > * {
     border: none;
-    border-bottom: 1px solid $borderColor;
+    border-bottom: 1px solid $delimiter;
   }
 
   & > *:last-child {

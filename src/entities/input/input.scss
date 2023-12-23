@@ -1,36 +1,27 @@
 .form-item {
+  @extend .flex-col-to-top-left;
   position: relative;
   width: 100%;
 
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-
   &__label {
+    @extend .text-13-500;
     position: absolute;
     top: 7.5px;
     left: 4px;
 
-    font-size: 13px;
-    font-weight: 500;
-    line-height: 13px;
-    letter-spacing: 0em;
     text-align: left;
-
     color: $secondary;
+
     transition: all 0.1s ease;
   }
 
   &__input {
+    @extend .text-13-500;
     width: inherit;
+
     border: 0;
     border-bottom: 1px solid $primary;
 
-    font-size: 13px;
-    font-weight: 500;
-    line-height: 13px;
-    letter-spacing: 0em;
     text-align: left;
 
     padding: 8px 0;
@@ -41,7 +32,7 @@
     }
   }
 
-  &__input:not(:placeholder-shown) ~ &__label {
+  &__input:focus ~ &__label {
     top: -8px;
     left: 0;
 
@@ -51,7 +42,7 @@
 
   &__validate {
     margin-top: 4px;
-    color: $validateText;
+    color: $danger;
     font-size: 0.7rem;
   }
 }

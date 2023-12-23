@@ -1,14 +1,12 @@
 .button {
+  @extend .text-13-500;
   position: relative;
-  text-align: center;
 
   cursor: pointer;
 
-  transition: all 0.15s ease;
-
-  font-weight: 500;
-  letter-spacing: 0em;
   text-align: center;
+
+  transition: all 0.15s ease;
 
   &:focus {
     outline: none;
@@ -17,11 +15,12 @@
   &_primary {
     border-radius: 8px;
     border: 2px solid rgba($color: $primary, $alpha: 0.9);
+
     padding: 12px 24px;
+
     background: rgba($color: $primary, $alpha: 0.9);
-    color: $lightText;
-    font-size: 13px;
-    line-height: 13px;
+
+    color: $white;
 
     width: 100%;
     max-width: 280px;
@@ -40,24 +39,25 @@
   }
 
   &_link {
+    @extend .text-11-500;
     background: transparent;
-    border: none;
-    color: $primary;
 
-    font-size: 11px;
-    line-height: 11px;
+    border: none;
+
+    color: $primary;
   }
 
-  &_exit {
+  &_danger {
+    @extend .text-11-500;
     background: transparent;
-    border: none;
-    color: $validateText;
 
-    font-size: 11px;
-    line-height: 11px;
+    border: none;
+
+    color: $danger;
   }
 
   &_arrow {
+    @extend .flex-col-center;
     width: 28px;
     height: 28px;
 
@@ -66,11 +66,7 @@
     border: none;
     border-radius: 50%;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    fill: $lightText;
+    fill: $white;
   }
 
   &_top {

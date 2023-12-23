@@ -1,9 +1,7 @@
 .block-title {
+  @extend .text-20-500;
   width: 100%;
-  color: $darkText;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 20px;
-  letter-spacing: 0em;
+
+  color: $dark;
   text-align: center;
 }

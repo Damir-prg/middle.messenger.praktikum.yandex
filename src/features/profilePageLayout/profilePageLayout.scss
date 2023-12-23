@@ -1,33 +1,22 @@
 .profile-page {
-  width: 100%;
-  height: 100vh;
-
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
+  @extend .full-screen;
+  @extend .flex-row-to-top-left;
 
   &__sidebar {
+    @extend .flex-col-center;
     width: 64px;
     height: 100%;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: #fbfbfb;
-    border-right: #eaeaea;
+    background: $subgray;
+    border-right: $delimiter;
   }
 
   &__content {
+    @extend .flex-col-to-top;
     flex-grow: 1;
+
     padding: 8px;
     padding-top: 60px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
     gap: 60px;
   }
 }
