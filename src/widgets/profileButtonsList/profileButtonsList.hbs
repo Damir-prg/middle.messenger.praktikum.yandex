@@ -1,15 +1,15 @@
 {{#>ProfileUl }}
    {{#>ProfileLi }}
-      {{> Button label="Изменить данные" type="link"}}
+      {{> Button label="Изменить данные" type="link" page="profileDataEdit"}}
    {{/ProfileLi}}
 
    
    {{#>ProfileLi }}
-      {{> Button label="Изменить пароль" type="link"}}
+      {{> Button label="Изменить пароль" type="link" page="profilePasswordsEdit"}}
    {{/ProfileLi}}
 
    
    {{#>ProfileLi }}
-      {{> Button label="Выйти" type="danger"}}
+      {{> Button label="Выйти" type="danger" page="login"}}
    {{/ProfileLi}}
 {{/ProfileUl}}
