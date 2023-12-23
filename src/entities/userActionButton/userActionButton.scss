@@ -1,0 +1,46 @@
+.user-action-button {
+  @extend .flex-col-center;
+  position: relative;
+  background: transparent;
+
+  width: 25px;
+  height: 25px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  fill: $dark;
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+
+  &:hover,
+  &:focus {
+    background: $lightblue;
+    fill: $primary;
+  }
+
+  &:focus &__actions {
+    @extend .actions-ul_active;
+    stroke: $primary;
+  }
+
+  &__actions {
+    @extend .actions-ul;
+    top: calc(100% + 25px);
+    right: 0;
+  }
+
+  &__action {
+    @extend .action-li;
+
+    &:hover {
+      background: $lightblue;
+    }
+  }
+}

@@ -130,3 +130,44 @@
 }
 
 // flex styles ----x
+
+// actions styles ---->
+
+.actions-ul {
+  gap: 8px;
+  position: absolute;
+
+  padding: 15px;
+
+  background: $white;
+
+  transition: all 0.2s ease;
+
+  opacity: 0;
+  display: none;
+
+  border-radius: 12px;
+  box-shadow: 0px 0px 6px 0px rgba($color: $black, $alpha: 0.24);
+}
+
+.actions-ul_active {
+  @extend .flex-col-to-top;
+  opacity: 1;
+}
+
+.action-li {
+  @extend .flex-row-center-left;
+  @extend .text-12-500;
+  width: 100%;
+
+  padding: 8px;
+  gap: 15px;
+
+  border-radius: 8px;
+
+  list-style-type: none;
+
+  text-wrap: nowrap;
+}
+
+// actions styles ----x

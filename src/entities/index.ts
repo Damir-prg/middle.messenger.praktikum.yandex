@@ -10,3 +10,7 @@ export { ChatLi } from './chatLi';
 export { ChatUl } from './chatUl';
 export { ChatDialogHeader } from './chatDialogHeader';
 export { ChatDialogMessagesWrapper } from './chatDialogMessagesWrapper';
+export { ChatDialogFooter } from './chatDialogFooter';
+export { MessageInput } from './MessageInput';
+export { AttachButton } from './attachButton';
+export { UserActionButton } from './userActionButton';

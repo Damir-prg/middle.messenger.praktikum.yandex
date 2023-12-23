@@ -25,7 +25,7 @@ const Routes = {
   profile: ProfilePage(),
 };
 
-export const routeHandler = (page: string): string => {
+const routeHandler = (page: string): string => {
   const choisedRoute = Routes[page as keyof typeof Routes];
 
   if (choisedRoute === undefined) {
@@ -34,3 +34,8 @@ export const routeHandler = (page: string): string => {
 
   return choisedRoute;
 };
+
+export function navigate(page: string) {
+  const container = document.getElementById('app')!;
+  container.innerHTML = routeHandler(page);
+}

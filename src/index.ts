@@ -1,11 +1,5 @@
 import './index.scss';
-import { routeHandler } from 'app/routes';
-
-function navigate(page: string) {
-  console.log('heelooo');
-  const container = document.getElementById('app')!;
-  container.innerHTML = routeHandler(page);
-}
+import { navigate } from 'app/routes';
 
 document.addEventListener('DOMContentLoaded', () => navigate('selectedChat'));
 
