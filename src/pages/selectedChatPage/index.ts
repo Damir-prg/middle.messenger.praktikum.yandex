@@ -1,6 +1,7 @@
 import Handlebars from 'handlebars';
 import { default as SelectedChatPageHbs } from './selectedChatPage.hbs?raw';
 import { navigate } from 'shared/lib';
+import { chatMessages } from 'shared/constants';
 
 export const SelectedChatPage = () => {
   const KEY_ESC = 'Escape';
@@ -9,5 +10,5 @@ export const SelectedChatPage = () => {
       navigate('unselectedChat');
     }
   };
-  return Handlebars.compile(SelectedChatPageHbs)({ userName: 'Вадим', messages: [{ message: '1' }, { message: '2' }] });
+  return Handlebars.compile(SelectedChatPageHbs)({ userName: 'Вадим', messages: chatMessages });
 };

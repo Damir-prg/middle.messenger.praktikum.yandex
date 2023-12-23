@@ -2,7 +2,7 @@
    {{>ChatDialogHeader userName=userName}}
    {{#>ChatDialogMessagesWrapper }}
       {{#each messages}}
-         <span>message</span>
+         {{>ChatMessage}}
       {{/each}}
    {{/ChatDialogMessagesWrapper}}
    {{> ChatDialogFooter}}

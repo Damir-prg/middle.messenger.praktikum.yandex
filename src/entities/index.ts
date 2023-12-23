@@ -14,3 +14,4 @@ export { ChatDialogFooter } from './chatDialogFooter';
 export { MessageInput } from './MessageInput';
 export { AttachButton } from './attachButton';
 export { UserActionButton } from './userActionButton';
+export { ChatMessage } from './chatMessage';
