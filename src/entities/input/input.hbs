@@ -1,7 +1,18 @@
-<p class='form-item'>
-  <input type='{{type}}' name='{{name}}' id='{{id}}' class='form-item__input' placeholder=' ' />
-  <label for='{{id}}' class='form-item__label'>{{label}}</label>
-  {{#if validateMessage}}
-    <span class='form-item__validate'>{{validateMessage}}</span>
-  {{/if}}
-</p>
+{{#if isProfile}}
+  <input
+    type='{{type}}'
+    name='{{name}}'
+    id='{{id}}'
+    value='{{value}}'
+    class='profile__input'
+    placeholder='{{placeholder}}'
+  />
+{{else}}
+  <p class='form-item'>
+    <input type='{{type}}' name='{{name}}' id='{{id}}' class='form-item__input' placeholder=' ' />
+    <label for='{{id}}' class='form-item__label'>{{label}}</label>
+    {{#if validateMessage}}
+      <span class='form-item__validate'>{{validateMessage}}</span>
+    {{/if}}
+  </p>
+{{/if}}

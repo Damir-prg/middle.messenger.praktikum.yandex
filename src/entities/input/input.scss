@@ -46,3 +46,18 @@
     font-size: 0.7rem;
   }
 }
+
+.profile {
+  &__input {
+    @extend .text-13-500;
+    color: $secondary;
+    text-align: right;
+
+    border: none;
+
+    &:focus,
+    &:focus-visible {
+      outline: none;
+    }
+  }
+}

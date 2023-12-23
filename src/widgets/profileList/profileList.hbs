@@ -2,31 +2,62 @@
 
   {{#>ProfileLi}}
     <span>Почта</span>
-    <span>pochta@yandex.ru</span>
+    {{> Input isProfile=true
+          type='email'
+          name='email'
+          id='email'
+          value='pochta@yandex.ru'
+          placeholder='Введите почту'}}
   {{/ProfileLi}}
 
   {{#>ProfileLi}}
     <span>Логин</span>
-    <span>ivanivanov</span>
+    {{> Input isProfile=true
+          type='text'
+          name='text'
+          id='text'
+          value='ivanivanov'
+          placeholder='Введите логин'}}
   {{/ProfileLi}}
   
   {{#>ProfileLi}}
     <span>Имя</span>
-    <span>Иван</span>
+    {{> Input isProfile=true
+          type='text'
+          name='text'
+          id='text'
+          value='Иван'
+          placeholder='Введите имя'}}
   {{/ProfileLi}}
 
   {{#>ProfileLi}}
     <span>Фамилия</span>
-    <span>Иванов</span>
+    {{> Input isProfile=true
+          type='text'
+          name='text'
+          id='text'
+          value='Иванов'
+          placeholder='Введите фамилию'}}  
+    
   {{/ProfileLi}}
 
   {{#>ProfileLi}}
     <span>Имя в чате</span>
-    <span>Иван</span>
+    {{> Input isProfile=true
+          type='text'
+          name='text'
+          id='text'
+          value='Иван'
+          placeholder='Введите никнейм'}} 
   {{/ProfileLi}}
 
   {{#>ProfileLi}}
     <span>Телефон</span>
-    <span>+7 (909) 967 30 30</span>
+    {{> Input isProfile=true
+          type='tel'
+          name='text'
+          id='text'
+          value='+7 (909) 967 30 30'
+          placeholder='Введите номер телефона'}} 
   {{/ProfileLi}}
 {{/ProfileUl}}
