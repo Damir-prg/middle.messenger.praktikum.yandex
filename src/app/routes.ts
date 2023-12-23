@@ -8,6 +8,7 @@ import {
   ProfileEditPage,
   ProfilePage,
   ProfilePasswordsPage,
+  WelcomePage,
 } from 'pages/index';
 import { initialComponents } from 'shared/lib';
 
@@ -23,4 +24,5 @@ export const Routes = {
   profileDataEdit: ProfileEditPage(),
   profilePasswordsEdit: ProfilePasswordsPage(),
   profile: ProfilePage(),
+  welcome: WelcomePage(),
 };

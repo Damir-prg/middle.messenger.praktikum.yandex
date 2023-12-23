@@ -1,7 +1,7 @@
 import './index.scss';
 import { navigate } from 'shared/lib';
 
-document.addEventListener('DOMContentLoaded', () => navigate('selectedChat'));
+document.addEventListener('DOMContentLoaded', () => navigate('login'));
 
 document.addEventListener('click', (event) => {
   const target = event.target as HTMLButtonElement;

@@ -1,0 +1,35 @@
+{{#>PageLayout type="center"}}
+   <nav class="welcome">
+      <h1 class="welcome__title">Список страниц</h1>
+      <ul class="welcome__list">
+         <li class="welcome__list-item">
+            {{> Button label="Страница авторизации" type="link" page="login"}}
+         </li>
+         <li class="welcome__list-item">
+            {{> Button label="Страница регистрации" type="link" page="auth"}}
+         </li>
+         <li class="welcome__list-item">
+            {{> Button label="Страница не открытого чатов" type="link" page="unselectedChat"}}
+         </li>
+         <li class="welcome__list-item">
+            {{> Button label="Страница открытого чата" type="link" page="selectedChat"}}
+         </li>
+         <li class="welcome__list-item">
+            {{> Button label="Страница 404" type="link" page="notFounded"}}
+         </li>
+         <li class="welcome__list-item">
+            {{> Button label="Страница 5хх" type="link" page="serverError"}}
+         </li>
+         <li class="welcome__list-item">
+            {{> Button label="Страница редактирования данных пользователя" type="link" page="profileDataEdit"}}
+         </li>
+         <li class="welcome__list-item">
+            {{> Button label="Страница изменения пароля" type="link" page="profilePasswordsEdit"}}
+         </li>
+         <li class="welcome__list-item">
+            {{> Button label="Страница пользователя" type="link" page="profile"}}
+         </li>
+      </ul>
+    
+   </nav>
+{{/PageLayout}}

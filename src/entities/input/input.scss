@@ -32,7 +32,7 @@
     }
   }
 
-  &__input:focus ~ &__label {
+  &__input:is(:focus, :not(:placeholder-shown)) ~ &__label {
     top: -8px;
     left: 0;
 

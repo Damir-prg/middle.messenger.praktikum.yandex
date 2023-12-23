@@ -7,3 +7,4 @@ export { ProfilePasswordsPage } from './profilePasswordsPage';
 export { ProfileEditPage } from './profileEditPage';
 export { UnselectedChatsPage } from './unselectedChatPage';
 export { SelectedChatPage } from './selectedChatPage';
+export { WelcomePage } from './welcomePage';
