@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "start": "tsx && vite build && vite preview",
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,md,json}\" --config ./.prettierrc"
   },
@@ -18,7 +19,7 @@
     "vite-tsconfig-paths": "^4.2.2"
   },
   "engines": {
-    "node": ">=14.21.2",
+    "node": ">=18.18.0",
     "npm": ">=9.8.1"
   }
 }
