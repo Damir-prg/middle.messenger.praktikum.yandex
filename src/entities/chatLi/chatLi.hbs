@@ -1,17 +1,22 @@
-<li class='chat-list-item' data-navigate='selectedChat'>
-  <div class='chat-list-item__container' data-navigate='selectedChat'>
-    <div class='chat-list-item__avatar' data-navigate='selectedChat'>
+<li class="chat-list-item" data-navigate="selectedChat">
+  <div class="chat-list-item__container" data-navigate="selectedChat">
+    <div class="chat-list-item__avatar" data-navigate="selectedChat">
       {{#if imageSrc}}
-        <img src='{{imageSrc}}' alt='' class='chat-list-item__avatar__user-image' data-navigate='selectedChat' />
+      <img
+        src="{{ imageSrc }}"
+        alt="Аватар пользователя"
+        class="chat-list-item__avatar__user-image"
+        data-navigate="selectedChat"
+      />
       {{/if}}
     </div>
-    <div class='chat-list-item__content' data-navigate='selectedChat'>
-      <h4 class='chat-list-item__user-name' data-navigate='selectedChat'>{{userName}}</h4>
-      <p class='chat-list-item__last-message' data-navigate='selectedChat'>{{lastMessage}}</p>
+    <div class="chat-list-item__content" data-navigate="selectedChat">
+      <h4 class="chat-list-item__user-name" data-navigate="selectedChat">{{ userName }}</h4>
+      <p class="chat-list-item__last-message" data-navigate="selectedChat">{{ lastMessage }}</p>
     </div>
-    <div class='chat-list-item__info' data-navigate='selectedChat'>
-      <span class='chat-list-item__time' data-navigate='selectedChat'>{{time}}</span>
-      <div class='chat-list-item__unreaded-count' data-navigate='selectedChat'>{{unreadedCount}}</div>
+    <div class="chat-list-item__info" data-navigate="selectedChat">
+      <span class="chat-list-item__time" data-navigate="selectedChat">{{ time }}</span>
+      <div class="chat-list-item__unreaded-count" data-navigate="selectedChat">{{ unreadedCount }}</div>
     </div>
   </div>
 </li>

@@ -1,21 +1,21 @@
-<main class='chats-page' id={{id}}>
-    <aside class="chats-page__sidebar">
-        <header class="chats-page__header">
-            <div class="chats-page__sidebar-header">
-                {{> Button
+<main class="chats-page" id="{{ id }}">
+  <aside class="chats-page__sidebar">
+    <header class="chats-page__header">
+      <div class="chats-page__sidebar-header">
+        {{> Button
                     type="secondary"
                     page="profile"
                     isRoadTo=true
                     label="Профиль"
-                    }}
-            </div>
-            <input class="chats-page__search" type="search" name="search" placeholder="Поиск" id="">
-        </header>
-        <nav class="chats-page__chat-list">
-            {{>ChatsList}}
-        </nav>
-    </aside>
-    <section class="chats-page__content chats-page__content_{{direction}}">
-        {{> @partial-block }}
-    </section>
+        }}
+      </div>
+      <input class="chats-page__search" type="search" name="search" placeholder="Поиск" id="" />
+    </header>
+    <nav class="chats-page__chat-list">
+      {{>ChatsList}}
+    </nav>
+  </aside>
+  <section class="chats-page__content chats-page__content_{{ direction }}">
+    {{> @partial-block }}
+  </section>
 </main>

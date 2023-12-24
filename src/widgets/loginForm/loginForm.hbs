@@ -1,11 +1,11 @@
 {{#>Form}}
-   {{>BlockTitle titleLevel="1" title="Вход"}}
-   <div class="inputs-list">
-    {{>Input type="text" name="login" id="login" label="Логин"}}
-    {{>Input type="password" name="password" id="password" label="Пароль" validateMessage="Неверный пароль"}}
-   </div>
-   <div class="buttons">
-    {{>Button type="primary" label="Авторизоваться" page="unselectedChat"}}
-    {{>Button type="link" label="Нет аккаунта?" page="auth"}}
-   </div>
+{{>BlockTitle titleLevel="1" title="Вход"}}
+<div class="inputs-list">
+  {{>Input type="text" name="login" id="login" label="Логин"}}
+  {{>Input type="password" name="password" id="password" label="Пароль" validateMessage="Неверный пароль"}}
+</div>
+<div class="buttons">
+  {{>Button type="primary" label="Авторизоваться" page="unselectedChat"}}
+  {{>Button type="link" label="Нет аккаунта?" page="auth"}}
+</div>
 {{/Form}}

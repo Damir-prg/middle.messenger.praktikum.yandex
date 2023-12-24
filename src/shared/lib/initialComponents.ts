@@ -4,15 +4,15 @@ import * as Features from 'features/index';
 import * as Widgets from 'widgets/index';
 
 export const initialComponents = () => {
-  Object.entries(Entities).forEach(([name, entity]) => {
+  for (const [name, entity] of Object.entries(Entities)) {
     Handlebars.registerPartial(name, entity);
-  });
+  }
 
-  Object.entries(Features).forEach(([name, feature]) => {
+  for (const [name, feature] of Object.entries(Features)) {
     Handlebars.registerPartial(name, feature);
-  });
+  }
 
-  Object.entries(Widgets).forEach(([name, widget]) => {
+  for (const [name, widget] of Object.entries(Widgets)) {
     Handlebars.registerPartial(name, widget);
-  });
+  }
 };

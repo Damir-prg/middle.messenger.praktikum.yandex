@@ -1,8 +1,8 @@
 import Handlebars from 'handlebars';
 import * as Assets from './assets';
 
-Object.entries(Assets).forEach(([name, asset]) => {
+for (const [name, asset] of Object.entries(Assets)) {
   Handlebars.registerPartial(name, asset);
-});
+}
 
 export { default as AttachButton } from './attachButton.hbs?raw';

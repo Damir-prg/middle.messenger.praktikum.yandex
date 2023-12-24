@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "format": "prettier --write \"src/**/*.{js,ts,css,md,json,hbs}\" --config ./.prettierrc",
+    "dev": "npm run format && vite",
     "build": "tsc && vite build",
-    "start": "tsc && vite build && vite preview",
-    "preview": "vite preview",
-    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,md,json}\" --config ./.prettierrc"
+    "start": "vite build && vite preview",
+    "preview": "vite preview"
   },
   "devDependencies": {
     "handlebars": "^4.7.8",
@@ -21,5 +21,11 @@
   "engines": {
     "node": ">=18.18.0",
     "npm": ">=9.8.1"
+  },
+  "lint-staged": {
+    "*.{js,ts,hbs}": [
+      "pretty-quick --staged",
+      "eslint --fix"
+    ]
   }
 }
