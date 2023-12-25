@@ -6,13 +6,21 @@
   value="{{ value }}"
   class="profile__input"
   placeholder="{{ placeholder }}"
+  autocomplete="off"
 />
 {{else}}
-<p class="form-item">
-  <input type="{{ type }}" name="{{ name }}" id="{{ id }}" class="form-item__input" placeholder=" " />
+<div class="form-item">
+  <input
+    type="{{ type }}"
+    name="{{ name }}"
+    id="{{ id }}"
+    class="form-item__input"
+    placeholder=" "
+    autocomplete="off"
+  />
   <label for="{{ id }}" class="form-item__label">{{ label }}</label>
   {{#if validateMessage}}
   <span class="form-item__validate">{{ validateMessage }}</span>
   {{/if}}
-</p>
+</div>
 {{/if}}
