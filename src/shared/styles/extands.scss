@@ -152,6 +152,7 @@
 
 .actions-ul_active {
   @extend .flex-col-to-top;
+  z-index: 2000;
   opacity: 1;
 }
 
