@@ -1,0 +1,34 @@
+.chat-dialog-header {
+  @extend .flex-row-between;
+  width: 100%;
+  height: fit-content;
+
+  padding-bottom: 10px;
+
+  border-bottom: 1px solid $delimiter;
+
+  &__user-info {
+    @extend .flex-row-center-left;
+    gap: 10px;
+
+    .user-info {
+      &__img {
+        height: 34px;
+        width: 34px;
+
+        border-radius: 50%;
+
+        background: $subwhite;
+      }
+
+      &__title {
+        @extend .text-13-600;
+      }
+    }
+  }
+
+  &__actions {
+    cursor: pointer;
+    fill: $dark;
+  }
+}

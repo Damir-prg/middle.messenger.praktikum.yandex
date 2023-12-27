@@ -1,0 +1,7 @@
+{{#>ProfilePageLayout }}
+{{> ProfileImage isEdit=true}}
+<form class="profile-form">
+  {{> ProfileList isEdit=true}}
+  {{> Button label="Сохранить" type="primary" page="profile"}}
+</form>
+{{/ProfilePageLayout}}

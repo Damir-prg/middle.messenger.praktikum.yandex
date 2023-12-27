@@ -1,0 +1,20 @@
+.message-input {
+  @extend .text-12-500;
+  flex-grow: 1;
+  height: fit-content;
+  max-height: 3rem;
+
+  resize: none;
+
+  padding: 10px 20px;
+
+  border: none;
+  border-radius: 30px;
+
+  background: $subwhite;
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+}

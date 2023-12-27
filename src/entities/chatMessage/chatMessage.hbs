@@ -1,0 +1,25 @@
+<div class="chat-dialog__message chat-dialog__message_{{ wrapperType }}">
+  <div class="message message_{{ type }}">
+    {{ message }}
+    {{#if image}}
+    <img src="{{ image }}" alt="{{ alt }}" class="message__image" />
+    {{/if}}
+    {{#if messageTime}}
+    <span class="message__time message__time_{{ type }}">
+      {{#if isReaded}}
+      <svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line
+          y1="-0.5"
+          x2="3.765"
+          y2="-0.5"
+          transform="matrix(0.705933 0.708278 -0.705933 0.708278 0.700195 2.33301)"
+        />
+        <line y1="-0.5" x2="5.6475" y2="-0.5" transform="matrix(0.705933 -0.708278 0.705933 0.708278 3.35828 5)" />
+        <line y1="-0.5" x2="5.6475" y2="-0.5" transform="matrix(0.705933 -0.708278 0.705933 0.708278 6.01587 5)" />
+      </svg>
+      {{/if}}
+      {{ messageTime }}
+    </span>
+    {{/if}}
+  </div>
+</div>

@@ -1,0 +1,18 @@
+.modal {
+  @extend .full-screen;
+  @extend .absolute-center;
+  @extend .flex-col-center;
+  background: rgba($color: $black, $alpha: 0.4);
+
+  &__content {
+    @extend .flex-col-center;
+    padding: 40px 30px;
+    gap: 40px;
+
+    box-shadow: 0px 0px 6px 0px rgba($color: $black, $alpha: 0.24);
+    border: none;
+    border-radius: 12px;
+
+    background: $white;
+  }
+}

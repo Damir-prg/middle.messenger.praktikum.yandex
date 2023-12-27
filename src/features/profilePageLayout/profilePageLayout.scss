@@ -1,0 +1,22 @@
+.profile-page {
+  @extend .full-screen;
+  @extend .flex-row-to-top-left;
+
+  &__sidebar {
+    @extend .flex-col-center;
+    width: 64px;
+    height: 100%;
+
+    background: $subgray;
+    border-right: $delimiter;
+  }
+
+  &__content {
+    @extend .flex-col-to-top;
+    flex-grow: 1;
+
+    padding: 8px;
+    padding-top: 60px;
+    gap: 60px;
+  }
+}
