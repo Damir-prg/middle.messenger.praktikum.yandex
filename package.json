@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "format": "prettier --write \"src/**/*.{js,ts,css,md,json,hbs}\" --config ./.prettierrc",
-    "dev": "npm run format && vite",
+    "dev": "vite",
     "build": "tsc && vite build",
     "start": "vite build && vite preview",
     "preview": "vite preview"
