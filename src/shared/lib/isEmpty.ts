@@ -2,7 +2,7 @@ function checkTypeOfObject(value: object): boolean {
   const stringifyObject = toString.call(value);
 
   if (stringifyObject.includes('Object')) {
-    const myObj = value as Object;
+    const myObj = value as object;
 
     if (Object.keys(myObj).length > 0) {
       return false;

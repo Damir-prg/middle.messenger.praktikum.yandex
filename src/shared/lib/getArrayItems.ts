@@ -3,7 +3,7 @@
  * @param arr Массив элементов
  * @returns Первый элемент массива или undefined
  */
-export function first<T extends unknown>(arr: Array<T>): T | undefined {
+export function first<T>(arr: Array<T>): T | undefined {
   return arr?.at(0);
 }
 
@@ -12,6 +12,6 @@ export function first<T extends unknown>(arr: Array<T>): T | undefined {
  * @param arr Массив элементов
  * @returns Последний элемент массива или undefined
  */
-export function last<T extends unknown>(arr: Array<T>): T | undefined {
+export function last<T>(arr: Array<T>): T | undefined {
   return arr?.at(-1);
 }
