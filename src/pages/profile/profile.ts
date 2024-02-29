@@ -1,8 +1,11 @@
 import { IProfileListItemProps } from 'entities/profileListItem';
 import Block from 'shared/core/Block';
+import { TEvents } from 'shared/core/types';
+import { navigate } from 'shared/utilities/navigate';
 
 interface IProfileProps {
   profileListItems: IProfileListItemProps[];
+  exitEvents?: Partial<TEvents>;
 }
 
 export default class Profile extends Block<IProfileProps> {
@@ -16,6 +19,9 @@ export default class Profile extends Block<IProfileProps> {
         { title: 'Имя в чате', value: 'Иван' },
         { title: 'Телефон', value: '+7 (909) 967 30 30' },
       ],
+      exitEvents: {
+        click: () => navigate('authLogin'),
+      },
     });
   }
 
@@ -24,7 +30,7 @@ export default class Profile extends Block<IProfileProps> {
         {{#RowLayout}}
           {{{ ProfileSidebar }}}
           {{#ProfileContent}}
-            {{{ ProfileImage }}}
+            {{{ ProfileImage isEdit=true }}}
             {{{ ProfileInfoList }}}
             {{#ProfileList}}
               {{#ProfileListItem}}
@@ -34,7 +40,7 @@ export default class Profile extends Block<IProfileProps> {
                 {{{Link label="Изменить пароль" linkType="primary" }}}
               {{/ProfileListItem}}
               {{#ProfileListItem}}
-                {{{Link label="Выйти" linkType="danger" }}}
+                {{{Link label="Выйти" linkType="danger" events=exitEvents }}}
               {{/ProfileListItem}}
             {{/ProfileList}}
           {{/ProfileContent}}
