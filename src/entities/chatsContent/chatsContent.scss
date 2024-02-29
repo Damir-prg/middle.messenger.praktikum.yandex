@@ -1,0 +1,14 @@
+.chats-content {
+    flex-grow: 1;
+    height: 100%;
+
+    &__unselected {
+        @extend .flex-col-center;
+        font-weight: 400;
+        color: $secondary;
+    }
+
+    &__selected {
+        @extend .flex-col-to-top;
+    }
+}

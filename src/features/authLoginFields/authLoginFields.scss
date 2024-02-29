@@ -1,0 +1,8 @@
+.auth-form {
+    &__fields {
+        @extend .flex-col-to-top;
+        flex-grow: 1;
+        width: 100%;
+        gap: 5px;
+    }
+}

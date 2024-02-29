@@ -1,0 +1,20 @@
+.error {
+    width: 100%;
+    max-width: 600px;
+
+    &__element {
+        @extend .flex-col-to-top;
+        gap: 20px;
+        width: 100%;
+    }
+
+    &__title {
+        font-size: 4em;
+        text-align: center;
+    }
+
+    &__message {
+        font-size: 1.5em;
+        text-align: center;
+    }
+}

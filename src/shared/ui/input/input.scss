@@ -1,0 +1,64 @@
+.input {
+    @extend .flex-col-to-top-left;
+    @extend .text-13;
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+    gap: 4px;
+
+
+    &__error {
+        color: $danger;
+    }
+
+    &__label {
+        position: absolute;
+        top: 8px;
+        left: 4px;
+
+        color: $secondary;
+
+
+        transition: 0.075s;
+    }
+
+    &__element {
+        background: transparent;
+        z-index: 1;
+        width: 100%;
+        padding: 8px 4px;
+        border: none;
+        border-bottom: 1px solid $primary;
+
+        &:focus,
+        &:focus-visible {
+            outline: none;
+        }
+
+        &::placeholder {
+            padding-left: 4px;
+            visibility: hidden;
+        }
+
+        &:is(:focus, :not(:placeholder-shown))~.input__label {
+            @extend .text-11;
+            top: -12px;
+            left: 0;
+        }
+    }
+
+
+    &__profile {
+        color: $secondary;
+        border-bottom: none;
+
+        &::placeholder {
+            visibility: visible;
+        }
+
+        &~.input__label {
+            display: none;
+        }
+    }
+
+}

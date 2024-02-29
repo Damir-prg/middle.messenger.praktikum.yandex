@@ -2,22 +2,24 @@ import EventBus from './EventBus';
 import { nanoid } from 'nanoid';
 import Handlebars from 'handlebars';
 import { TEvents } from './types';
-
-export type TProps = {
-  events?: TEvents;
-  [x: string | symbol]: any;
-};
+import { IChildren } from './registerComponents';
+import { isEqualObjects } from './lib';
 
 export type RefType = {
-  [key: string]: Element | Block<TProps>;
+  [key: string]: Element | Block<object>;
 };
 
-// export interface BlockClass<P extends object, R extends RefType> extends Function {
-//   new (props: P): Block<P, R>;
-//   componentName?: string;
-// }
+export interface BlockClass<P extends object, R extends RefType> {
+  new (props: P): Block<P, R>;
+  componentName?: string;
+}
 
-class Block<Props extends TProps, Refs extends RefType = RefType> {
+type TContextAndStubs<Props extends object, R extends RefType> = {
+  __refs: RefType;
+  __children: IChildren<Props, R>[];
+} & Props;
+
+class Block<Props extends object & { events?: Partial<TEvents> }, Refs extends RefType = RefType> {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
@@ -27,13 +29,13 @@ class Block<Props extends TProps, Refs extends RefType = RefType> {
   };
 
   public id = nanoid(6);
-  protected props: Props;
+  protected props: Props & { events?: Partial<TEvents> };
   protected refs: Refs = {} as Refs;
-  private children: Block<Props>[] = [];
-  private eventBus: () => EventBus;
+  private children: Block<object>[] = [];
+  private eventBus: () => EventBus<string>;
   private _element: HTMLElement | null = null;
 
-  constructor(props: Props = {} as Props) {
+  constructor(props: Props = {} as Props & { events?: Partial<TEvents> }) {
     const eventBus = new EventBus();
 
     this.props = this._makePropsProxy(props);
@@ -45,17 +47,29 @@ class Block<Props extends TProps, Refs extends RefType = RefType> {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
+  /**
+   * Добавляет события к элементу на основе предоставленных свойств.
+   *
+   */
   _addEvents() {
     const { events } = this.props;
 
-    if (events) {
-      Object.keys(events).forEach((eventName) => {
-        const eventNameAs = eventName as keyof HTMLElementEventMap;
-        this._element!.addEventListener(eventNameAs, events[eventNameAs]);
-      });
+    if (!events) {
+      return;
     }
+
+    Object.keys(events).forEach((eventName) => {
+      const callback = events[eventName as keyof TEvents] as EventListener;
+      this._element!.addEventListener(eventName, callback);
+    });
   }
 
+  /**
+   * Регистрирует события на шине событий.
+   *
+   * @param {EventBus} eventBus - шина событий, на которой нужно зарегистрировать события
+   * @return {void}
+   */
   _registerEvents(eventBus: EventBus) {
     eventBus.on(Block.EVENTS.INIT, this._init.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
@@ -64,6 +78,9 @@ class Block<Props extends TProps, Refs extends RefType = RefType> {
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
   }
 
+  /**
+   * Инициализирует блок.
+   */
   private _init() {
     this.init();
 
@@ -79,20 +96,30 @@ class Block<Props extends TProps, Refs extends RefType = RefType> {
 
   componentDidMount() {}
 
+  /**
+   * Отправляет событие componentDidMount и вызывает метод componentDidMount для каждого дочернего компонента.
+   */
   public dispatchComponentDidMount() {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
 
     Object.values(this.children).forEach((child) => child.dispatchComponentDidMount());
   }
 
-  private _componentDidUpdate() {
-    if (this.componentDidUpdate()) {
+  private _componentDidUpdate(oldProps: Props, newProps: Props) {
+    if (this.componentDidUpdate(oldProps, newProps)) {
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
   }
 
-  protected componentDidUpdate() {
-    return true;
+  /**
+   * Метод жизненного цикла, вызываемый сразу после выполнения обновления.
+   *
+   * @param {Props} oldProps - старые пропсы до обновления
+   * @param {Props} newProps - новые пропсы после обновления
+   * @return {boolean} флаг, указывающий на то, что старые пропсы не равны новым пропсам
+   */
+  protected componentDidUpdate(oldProps: Props, newProps: Props) {
+    return !isEqualObjects(oldProps, newProps);
   }
 
   /**
@@ -117,12 +144,14 @@ class Block<Props extends TProps, Refs extends RefType = RefType> {
   componentWillUnmount() {
     const { events } = this.props;
 
-    if (events) {
-      Object.keys(events).forEach((eventName) => {
-        const eventNameAs = eventName as keyof HTMLElementEventMap;
-        this._element!.removeEventListener(eventNameAs, events[eventNameAs]);
-      });
+    if (!events) {
+      return;
     }
+
+    Object.keys(events).forEach((eventName) => {
+      const callback = events[eventName as keyof TEvents] as EventListener;
+      this._element!.removeEventListener(eventName, callback);
+    });
   }
 
   setProps = (nextProps: Props) => {
@@ -147,29 +176,33 @@ class Block<Props extends TProps, Refs extends RefType = RefType> {
     }
 
     this._element = newElement;
-
     this._addEvents();
   }
 
-  private compile(template: string, context: any) {
-    const contextAndStubs = { ...context, __refs: this.refs };
-
-    Object.entries(this.children).forEach(([key, child]) => {
-      contextAndStubs[key] = `<div data-id="${child.id}"></div>`;
-    });
+  private compile(template: string, context: Props) {
+    const contextAndStubs: TContextAndStubs<Props, Refs> = {
+      ...context,
+      __refs: this.refs,
+      __children: [],
+    };
 
     const html = Handlebars.compile(template)(contextAndStubs);
 
     const temp = document.createElement('template');
 
     temp.innerHTML = html;
-    contextAndStubs.__children?.forEach(({ embed }: any) => {
-      embed(temp.content);
-    });
 
-    Object.values(this.children).forEach((child) => {
-      const stub = temp.content.querySelector(`[data-id="${child.id}"]`);
-      stub?.replaceWith(child.getContent()!);
+    const fragment: DocumentFragment = temp.content;
+
+    this.refs = Array.from(fragment.querySelectorAll('[ref]')).reduce((list, element) => {
+      const key = element.getAttribute('ref')!;
+      list[key] = element as HTMLElement;
+      element.removeAttribute('ref');
+      return list;
+    }, contextAndStubs.__refs) as Refs;
+
+    contextAndStubs.__children?.forEach(({ embed }) => {
+      embed(temp.content);
     });
 
     return temp.content;
@@ -196,7 +229,7 @@ class Block<Props extends TProps, Refs extends RefType = RefType> {
 
     return new Proxy(props, {
       get(target, prop) {
-        const value = target[prop];
+        const value = target[prop as keyof Props];
         return typeof value === 'function' ? value.bind(target) : value;
       },
 
