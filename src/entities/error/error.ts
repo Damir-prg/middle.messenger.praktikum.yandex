@@ -1,14 +1,16 @@
 import Block from 'shared/core/Block';
+import { TEvents } from 'shared/core/types';
+import { navigate } from 'shared/utilities/navigate';
 
 export interface IErrorProps {
   title?: string;
   message?: string;
-  onClick?: () => void;
+  events?: Partial<TEvents>;
 }
 
 export default class Error extends Block<IErrorProps> {
   constructor(props: IErrorProps) {
-    super({ ...props, onClick: () => console.log('go to back') });
+    super({ ...props, events: { click: () => navigate('chats') } });
   }
 
   protected render(): string {
@@ -21,7 +23,7 @@ export default class Error extends Block<IErrorProps> {
           label="Назад к чатам"
           type="button"
           buttonType="link"
-          onClick=onClick
+          events=events
         }}}
       </div>
     `;
