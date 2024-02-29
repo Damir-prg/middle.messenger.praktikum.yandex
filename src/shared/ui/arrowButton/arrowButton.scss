@@ -1,42 +1,42 @@
 .arrow-button {
-    @extend .flex-col-center;
-    cursor: pointer;
+  @extend .flex-col-center;
+  cursor: pointer;
 
-    width: 28px;
-    height: 28px;
+  width: 28px;
+  height: 28px;
 
-    background: $primary;
+  background: $primary;
 
-    border: none;
-    border-radius: 50%;
+  border: none;
+  border-radius: 50%;
 
-    fill: $white;
+  fill: $white;
 
-    &_top {
-        transform: rotate(0);
-    }
+  &_top {
+    transform: rotate(0);
+  }
 
-    &_left {
-        transform: rotate(-90deg);
-    }
+  &_left {
+    transform: rotate(-90deg);
+  }
 
-    &_right {
-        transform: rotate(90deg);
-    }
+  &_right {
+    transform: rotate(90deg);
+  }
 
-    &_bottom {
-        transform: rotate(180deg);
-    }
+  &_bottom {
+    transform: rotate(180deg);
+  }
 
-    &:hover {
-        background: rgba($color: $primary, $alpha: 0.9);
-    }
+  &:hover {
+    background: rgba($color: $primary, $alpha: 0.9);
+  }
 
-    &:active {
-        box-shadow: 0 0 5px $primary;
-    }
+  &:active {
+    box-shadow: 0 0 5px $primary;
+  }
 
-    &:focus-visible {
-        box-shadow: 0 0 5px $primary;
-    }
+  &:focus-visible {
+    box-shadow: 0 0 5px $primary;
+  }
 }

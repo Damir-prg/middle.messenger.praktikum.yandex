@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "format": "prettier --write \"src/**/*.{js,ts,css,md,json,hbs}\" --config ./.prettierrc",
+    "format": "prettier --write \"src/**/*.{js,ts,css,scss,md,json,hbs}\" --config ./.prettierrc",
     "lint": "eslint \"src/**/*.{js,ts,json}\"",
     "stylelint": "stylelint \"**/*.{css, scss}\" --allow-empty-input",
     "dev": "vite",

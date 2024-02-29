@@ -1,7 +1,7 @@
 .welcome {
-    &__list {
-        @extend .flex-col-to-top;
-        padding: 20px;
-        gap: 10px;
-    }
+  &__list {
+    @extend .flex-col-to-top;
+    padding: 20px;
+    gap: 10px;
+  }
 }

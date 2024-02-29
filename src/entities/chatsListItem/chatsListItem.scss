@@ -1,78 +1,78 @@
 .chats-aside {
-    &__list-item {
-        @extend .flex-row-between;
-        gap: 10px;
-        width: 100%;
-        height: 70px;
-        padding: 10px;
-        border-bottom: 1px solid $delimiter;
+  &__list-item {
+    @extend .flex-row-between;
+    gap: 10px;
+    width: 100%;
+    height: 70px;
+    padding: 10px;
+    border-bottom: 1px solid $delimiter;
 
-        transition: all 0.25s;
+    transition: all 0.25s;
 
-        &:hover {
-            background-color: $lightblue;
-            cursor: pointer;
-        }
-
-        &__image {
-            @extend .flex-col-center;
-            @extend .text-11;
-            color: $secondary;
-
-            width: 47px;
-            height: 47px;
-
-            border: none;
-            border-radius: 50%;
-
-            object-fit: cover;
-            background-color: $lightgray;
-        }
-
-        &__info {
-            @extend .flex-col-to-top-left;
-            position: relative;
-            gap: 4px;
-            flex-grow: 1;
-            height: 100%;
-            text-align: left;
-        }
-
-        &__name {
-            @extend .text-15;
-            color: $dark;
-        }
-
-        &__last-message {
-            @extend .text-13;
-            width: 100%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            flex-grow: 1;
-            color: $secondary;
-        }
-
-        &__description {
-            @extend .flex-col-between;
-            width: 47px;
-            height: 100%;
-        }
-
-        &__time {
-            @extend .text-11;
-            color: $secondary;
-        }
-
-        &__messages-count {
-            @extend .text-12;
-            @extend .flex-col-center;
-            width: 20px;
-            height: 20px;
-            background: #3369f3;
-            color: #fff;
-            border-radius: 50%;
-            text-align: center;
-        }
+    &:hover {
+      background-color: $lightblue;
+      cursor: pointer;
     }
+
+    &__image {
+      @extend .flex-col-center;
+      @extend .text-11;
+      color: $secondary;
+
+      width: 47px;
+      height: 47px;
+
+      border: none;
+      border-radius: 50%;
+
+      object-fit: cover;
+      background-color: $lightgray;
+    }
+
+    &__info {
+      @extend .flex-col-to-top-left;
+      position: relative;
+      gap: 4px;
+      flex-grow: 1;
+      height: 100%;
+      text-align: left;
+    }
+
+    &__name {
+      @extend .text-15;
+      color: $dark;
+    }
+
+    &__last-message {
+      @extend .text-13;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex-grow: 1;
+      color: $secondary;
+    }
+
+    &__description {
+      @extend .flex-col-between;
+      width: 47px;
+      height: 100%;
+    }
+
+    &__time {
+      @extend .text-11;
+      color: $secondary;
+    }
+
+    &__messages-count {
+      @extend .text-12;
+      @extend .flex-col-center;
+      width: 20px;
+      height: 20px;
+      background: #3369f3;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+    }
+  }
 }

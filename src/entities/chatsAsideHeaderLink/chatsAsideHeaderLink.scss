@@ -1,18 +1,18 @@
 .aside__link-button {
-    @extend .text-13;
-    color: $secondary;
+  @extend .text-13;
+  color: $secondary;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 
-    background: transparent;
-    border: none;
+  background: transparent;
+  border: none;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    &:hover {
-        color: $lightgray;
-    }
+  &:hover {
+    color: $lightgray;
+  }
 }

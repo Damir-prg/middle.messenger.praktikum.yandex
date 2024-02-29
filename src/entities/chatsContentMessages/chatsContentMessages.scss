@@ -1,9 +1,9 @@
 .chats-content-messages {
-    @extend .flex-col-to-top;
-    gap: 10px;
-    width: 100%;
-    flex-grow: 1;
-    padding: 10px 20px;
+  @extend .flex-col-to-top;
+  gap: 10px;
+  width: 100%;
+  flex-grow: 1;
+  padding: 10px 20px;
 
-    overflow-y: scroll;
+  overflow-y: scroll;
 }
