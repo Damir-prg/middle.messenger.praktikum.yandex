@@ -1,4 +1,4 @@
-import { TChatsContentMessageItemProps } from 'entities/chatsContentMessageItem';
+import { IChatsContentMessageItemProps } from 'entities/chatsContentMessageItem';
 import { IChatsListItemProps } from 'entities/chatsListItem/chatsListItem';
 
 export const users: Array<IChatsListItemProps> = new Array(20).fill({
@@ -22,7 +22,7 @@ const incommingMessage = `Привет! Смотри, тут всплыл инт
 
 const outgoingMessage = 'Круто!';
 
-export const messagesMock: TChatsContentMessageItemProps[] = [
+export const messagesMock: IChatsContentMessageItemProps[] = [
   {
     date: '19 июня',
     messageType: 'date',
