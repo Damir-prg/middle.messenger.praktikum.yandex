@@ -1,0 +1,24 @@
+.aside {
+  position: relative;
+
+  background-color: $subgray;
+
+  border: none;
+  border-right: 1px solid $delimiter;
+
+  &_top {
+    @extend .flex-col-to-top;
+
+    width: 30vw;
+    max-width: 300px;
+    min-width: 200px;
+    height: 100dvh;
+  }
+
+  &_center {
+    @extend .flex-col-center;
+
+    width: 75px;
+    height: 100dvh;
+  }
+}

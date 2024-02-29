@@ -1,0 +1,46 @@
+.button {
+    @extend .text-13;
+    cursor: pointer;
+
+    padding: 12px 24px;
+
+    border: none;
+
+    max-width: 280px;
+
+    &:focus {
+        outline: none;
+    }
+
+    &_primary {
+        width: 100%;
+        background-color: $primary;
+        color: $white;
+        border-radius: 8px;
+
+        transition: 0.1s;
+
+        &:hover {
+            background: rgba($color: $primary, $alpha: 0.9);
+        }
+
+        &:active {
+            box-shadow: 0 0 5px $primary;
+        }
+
+        &:focus-visible {
+            box-shadow: 0 0 5px $primary;
+        }
+
+    }
+
+    &_link {
+        color: $primary;
+        background: none;
+    }
+
+    &_danger {
+        color: $danger;
+        background: none;
+    }
+}

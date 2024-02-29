@@ -1,5 +1,4 @@
-import Handlebars from 'handlebars';
+import ProfileImage, { IProfileImageProps } from './profileImage';
 
-export { default as ProfileImage } from './profileImage.hbs?raw';
-
-Handlebars.registerHelper('profile', () => ({ username: 'Иван' }));
+export default ProfileImage;
+export type { IProfileImageProps };
