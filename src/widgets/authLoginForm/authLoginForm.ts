@@ -37,6 +37,7 @@ export default class AuthLoginForm extends Block<IAuthLoginFormProps, Ref> {
     for (const [name, value] of data) {
       console.log(name, ':', value);
     }
+    navigate('chats');
   }
 
   protected render(): string {
