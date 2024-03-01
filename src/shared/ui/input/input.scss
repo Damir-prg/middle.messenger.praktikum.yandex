@@ -27,7 +27,7 @@
       visibility: visible;
     }
 
-    &~.input__label {
+    & ~ .input__label {
       display: none;
     }
   }
@@ -50,13 +50,11 @@
       visibility: hidden;
     }
 
-    &:is(:focus, :not(:placeholder-shown))~.input__label {
+    &:is(:focus, :not(:placeholder-shown)) ~ .input__label {
       @extend .text-11;
 
       top: -12px;
       left: 0;
     }
   }
-
-
 }

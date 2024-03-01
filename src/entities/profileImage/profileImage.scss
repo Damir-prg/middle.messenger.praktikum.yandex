@@ -30,7 +30,7 @@
         visibility: hidden;
       }
 
-      &:hover>&__hover {
+      &:hover > &__hover {
         opacity: 1;
         visibility: visible;
       }
