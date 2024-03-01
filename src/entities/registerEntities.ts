@@ -13,6 +13,7 @@ import ChatsContentMessageItem from './chatsContentMessageItem';
 import ProfileContent from './profileContent';
 import ProfileList from './profileList';
 import ProfileListItem from './profileListItem';
+import ProfileEditForm from './profileEditForm';
 
 export function registerEntities() {
   registerComponent('Error', Error);
@@ -29,4 +30,5 @@ export function registerEntities() {
   registerComponent('ProfileContent', ProfileContent);
   registerComponent('ProfileList', ProfileList);
   registerComponent('ProfileListItem', ProfileListItem);
+  registerComponent('ProfileEditForm', ProfileEditForm);
 }

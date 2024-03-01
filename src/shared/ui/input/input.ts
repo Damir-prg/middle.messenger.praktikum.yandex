@@ -9,6 +9,7 @@ export interface IInputProps {
   placeholder?: string;
   error?: string;
   events?: Partial<TEvents>;
+  defaultValue?: string;
 }
 
 type Ref = {
@@ -19,6 +20,10 @@ type Ref = {
 export default class Input extends Block<IInputProps, Ref> {
   constructor(props: IInputProps) {
     super(props);
+
+    if (props?.defaultValue) {
+      this.refs.input.value = props.defaultValue;
+    }
   }
 
   public validate(callback: (value: string) => TRegexResult): boolean {

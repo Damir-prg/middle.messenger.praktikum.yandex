@@ -1,0 +1,8 @@
+.profile-edit-form {
+    @extend .flex-col-to-top;
+
+    width: 40vw;
+    max-width: 600px;
+    min-width: 200px;
+    gap: 30px
+}
