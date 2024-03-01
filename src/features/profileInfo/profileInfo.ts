@@ -1,11 +1,11 @@
 import { IProfileListItemProps } from 'entities/profileListItem';
 import Block from 'shared/core/Block';
 
-export interface IProfileInfoListProps {
+export interface IProfileInfoProps {
   profileListItems: IProfileListItemProps[];
 }
 
-export default class ProfileInfoList extends Block<IProfileInfoListProps> {
+export default class ProfileInfo extends Block<IProfileInfoProps> {
   constructor() {
     super({
       profileListItems: [

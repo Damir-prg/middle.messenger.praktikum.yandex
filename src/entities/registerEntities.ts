@@ -11,7 +11,6 @@ import ChatsContentFooter from './chatsContentFooter';
 import ChatsContentMessages from './chatsContentMessages';
 import ChatsContentMessageItem from './chatsContentMessageItem';
 import ProfileContent from './profileContent';
-import ProfileImage from './profileImage';
 import ProfileList from './profileList';
 import ProfileListItem from './profileListItem';
 
@@ -28,7 +27,6 @@ export function registerEntities() {
   registerComponent('ChatsContentMessages', ChatsContentMessages);
   registerComponent('ChatsContentMessageItem', ChatsContentMessageItem);
   registerComponent('ProfileContent', ProfileContent);
-  registerComponent('ProfileImage', ProfileImage);
   registerComponent('ProfileList', ProfileList);
   registerComponent('ProfileListItem', ProfileListItem);
 }

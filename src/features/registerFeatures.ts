@@ -5,7 +5,8 @@ import AuthSubmit from './authSubmit';
 import ChatsAsideHeaderFields from './chatsAsideHeaderFields';
 import ChatsAsideList from './chatsAsideList';
 import ChatsMessages from './chatsMessages';
-import ProfileInfoList from './profileInfoList';
+import ProfileInfo from './profileInfo';
+import ProfileImage from './profileImage';
 
 export function registerFeatures() {
   registerComponent('AuthLoginFields', AuthLoginFields);
@@ -14,5 +15,6 @@ export function registerFeatures() {
   registerComponent('ChatsAsideHeaderFields', ChatsAsideHeaderFields);
   registerComponent('ChatsAsideList', ChatsAsideList);
   registerComponent('ChatsMessages', ChatsMessages);
-  registerComponent('ProfileInfoList', ProfileInfoList);
+  registerComponent('ProfileInfo', ProfileInfo);
+  registerComponent('ProfileImage', ProfileImage);
 }

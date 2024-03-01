@@ -4,4 +4,4 @@ import { navigate } from 'shared/utilities/navigate';
 
 initialComponents();
 
-document.addEventListener('DOMContentLoaded', () => navigate('welcome'));
+document.addEventListener('DOMContentLoaded', () => navigate('profile'));
