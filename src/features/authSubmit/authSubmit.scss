@@ -1,6 +1,7 @@
 .auth-form {
   &__submit {
     @extend .flex-col-to-top;
+
     margin-top: 20px;
     width: 100%;
     gap: 10px;

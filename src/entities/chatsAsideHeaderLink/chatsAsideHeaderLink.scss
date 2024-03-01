@@ -1,15 +1,13 @@
 .aside__link-button {
   @extend .text-13;
-  color: $secondary;
 
+  color: $secondary;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
-
   background: transparent;
   border: none;
-
   cursor: pointer;
 
   &:hover {

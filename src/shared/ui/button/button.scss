@@ -1,11 +1,9 @@
 .button {
   @extend .text-13;
+
   cursor: pointer;
-
   padding: 12px 24px;
-
   border: none;
-
   max-width: 280px;
 
   &:focus {
@@ -17,11 +15,10 @@
     background-color: $primary;
     color: $white;
     border-radius: 8px;
-
     transition: 0.1s;
 
     &:hover {
-      background: rgba($color: $primary, $alpha: 0.9);
+      background: rgba($color: $primary, $alpha: 90%);
     }
 
     &:active {

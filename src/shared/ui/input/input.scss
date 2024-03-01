@@ -1,6 +1,7 @@
 .input {
   @extend .flex-col-to-top-left;
   @extend .text-13;
+
   width: 100%;
   position: relative;
   margin-top: 20px;
@@ -14,10 +15,21 @@
     position: absolute;
     top: 8px;
     left: 4px;
-
     color: $secondary;
-
     transition: 0.075s;
+  }
+
+  &__profile {
+    color: $secondary;
+    border-bottom: none;
+
+    &::placeholder {
+      visibility: visible;
+    }
+
+    &~.input__label {
+      display: none;
+    }
   }
 
   &__element {
@@ -38,23 +50,13 @@
       visibility: hidden;
     }
 
-    &:is(:focus, :not(:placeholder-shown)) ~ .input__label {
+    &:is(:focus, :not(:placeholder-shown))~.input__label {
       @extend .text-11;
+
       top: -12px;
       left: 0;
     }
   }
 
-  &__profile {
-    color: $secondary;
-    border-bottom: none;
 
-    &::placeholder {
-      visibility: visible;
-    }
-
-    & ~ .input__label {
-      display: none;
-    }
-  }
 }

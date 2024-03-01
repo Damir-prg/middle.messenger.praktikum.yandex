@@ -4,6 +4,7 @@
 
   &__element {
     @extend .flex-col-to-top;
+
     gap: 20px;
     width: 100%;
   }

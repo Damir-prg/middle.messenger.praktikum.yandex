@@ -2,6 +2,7 @@
   &__item {
     @extend .flex-row-between;
     @extend .text-13;
+
     width: 100%;
     padding: 10px 0;
     flex-wrap: nowrap;

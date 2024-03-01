@@ -1,6 +1,7 @@
 .center-layout {
   @extend .flex-col-center;
   @extend .full-screen;
+
   padding: 1rem;
 
   &__full-screen {
