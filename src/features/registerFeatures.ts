@@ -7,7 +7,7 @@ import ChatsAsideList from './chatsAsideList';
 import ChatsMessages from './chatsMessages';
 import ProfileInfo from './profileInfo';
 import ProfileImage from './profileImage';
-import ProfileEditInfo from './profileEditInfo';
+import ProfileEditInfoFields from './profileEditInfoFields';
 import ProfileEditPassword from './profileEditPassword';
 
 export function registerFeatures() {
@@ -19,6 +19,6 @@ export function registerFeatures() {
   registerComponent('ChatsMessages', ChatsMessages);
   registerComponent('ProfileInfo', ProfileInfo);
   registerComponent('ProfileImage', ProfileImage);
-  registerComponent('ProfileEditInfo', ProfileEditInfo);
+  registerComponent('ProfileEditInfoFields', ProfileEditInfoFields);
   registerComponent('ProfileEditPassword', ProfileEditPassword);
 }
