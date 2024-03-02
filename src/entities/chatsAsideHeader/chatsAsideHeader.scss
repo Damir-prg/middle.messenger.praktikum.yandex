@@ -1,13 +1,11 @@
 .chats-aside {
-    &__header {
-        @extend .flex-col-between;
-        gap: 10px;
+  &__header {
+    @extend .flex-col-between;
 
-        width: 100%;
-
-        padding: 10px;
-
-        border: none;
-        border-bottom: 1px solid $delimiter;
-    }
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid $delimiter;
+  }
 }

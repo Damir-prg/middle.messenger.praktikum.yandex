@@ -1,10 +1,8 @@
 .block-container {
-    @extend .flex-col-to-top;
-    gap: 20px;
+  @extend .flex-col-to-top;
 
-    padding: 20px 10px;
-
-    border-radius: 12px;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-
+  gap: 20px;
+  padding: 20px 10px;
+  border-radius: 12px;
+  box-shadow: 0 0 6px rgb(0 0 0 / 10%);
 }

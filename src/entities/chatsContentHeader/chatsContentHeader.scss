@@ -1,50 +1,48 @@
 .chats-content-header {
+  @extend .flex-row-between;
+
+  width: 100%;
+  padding: 10px 20px;
+  border: none;
+  border-bottom: 1px solid $delimiter;
+
+  &__profile {
     @extend .flex-row-between;
-    width: 100%;
-    padding: 10px 20px;
 
+    gap: 10px;
+
+    &__image {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    &__name {
+      color: $dark;
+    }
+  }
+
+  &__options {
+    @extend .flex-col-center;
+
+    width: 25px;
+    height: 25px;
+    background: transparent;
     border: none;
-    border-bottom: 1px solid $delimiter;
+    border-radius: 50%;
+    cursor: pointer;
+    fill: $dark;
+    transition: all 0.25s;
 
-    &__profile {
-        @extend .flex-row-between;
-        gap: 10px;
-
-
-        &__image {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        &__name {
-            color: $dark;
-        }
+    &:hover {
+      fill: $primary;
+      background-color: $lightblue;
     }
 
-    &__options {
-        @extend .flex-col-center;
-        width: 25px;
-        height: 25px;
-
-        background: transparent;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-
-        fill: $dark;
-
-        transition: all 0.25s;
-
-        &:hover {
-            fill: $primary;
-            background-color: $lightblue;
-        }
-
-        &:focus,
-        &:focus-visible {
-            outline: none;
-        }
+    &:focus,
+    &:focus-visible {
+      outline: none;
     }
+  }
 }

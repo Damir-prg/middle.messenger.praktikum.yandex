@@ -1,11 +1,12 @@
 .profile-content-list {
-    @extend .flex-col-to-top;
-    width: 40vw;
-    max-width: 600px;
-    min-width: 200px;
+  @extend .flex-col-to-top;
 
-    &>*:not(:last-child) {
-        border: none;
-        border-bottom: 1px solid $delimiter;
-    }
+  width: 40vw;
+  max-width: 600px;
+  min-width: 200px;
+
+  & > *:not(:last-child) {
+    border: none;
+    border-bottom: 1px solid $delimiter;
+  }
 }

@@ -1,18 +1,20 @@
 .profile-content-list {
-    &__item {
-        @extend .flex-row-between;
-        @extend .text-13;
-        width: 100%;
-        padding: 10px 0;
-        flex-wrap: nowrap;
-        gap: 10px;
+  &__item {
+    @extend .flex-row-between;
+    @extend .text-13;
 
-        &__title {
-            color: $dark;
-        }
+    width: 100%;
+    padding: 10px 0;
+    flex-wrap: nowrap;
+    gap: 10px;
 
-        &__value {
-            color: $secondary;
-        }
+    &__title {
+      color: $dark;
+      text-wrap: nowrap;
     }
+
+    &__value {
+      color: $secondary;
+    }
+  }
 }

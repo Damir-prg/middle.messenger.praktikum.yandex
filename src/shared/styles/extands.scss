@@ -1,12 +1,8 @@
-// size of page styles ---->
 .full-screen {
   width: 100%;
   height: 100vh;
 }
 
-// size of page styles ----x
-
-// text styles ---->
 .text-9 {
   font-size: 9px;
   line-height: 13px;
@@ -43,9 +39,6 @@
   line-height: 20px;
 }
 
-// text styles ----x
-
-// position styles ---->
 .absolute-center {
   position: absolute;
   top: 50%;
@@ -53,9 +46,6 @@
   transform: translate(-50%, -50%);
 }
 
-// position styles ----x
-
-// flex styles ---->
 .flex-row-to-top-left {
   display: flex;
   flex-direction: row;
@@ -119,29 +109,21 @@
   justify-content: space-between;
 }
 
-// flex styles ----x
-
-// actions styles ---->
-
 .actions-ul {
   gap: 8px;
   position: absolute;
-
   padding: 15px;
-
   background: $white;
-
   transition: all 0.2s ease;
-
   opacity: 0;
   display: none;
-
   border-radius: 12px;
-  box-shadow: 0px 0px 6px 0px rgba($color: $black, $alpha: 0.24);
+  box-shadow: 0 0 6px 0 rgba($color: $black, $alpha: 24%);
 }
 
 .actions-ul_active {
   @extend .flex-col-to-top;
+
   z-index: 2000;
   opacity: 1;
 }
@@ -149,16 +131,11 @@
 .action-li {
   @extend .flex-row-center-left;
   @extend .text-12;
-  width: 100%;
 
+  width: 100%;
   padding: 8px;
   gap: 15px;
-
   border-radius: 8px;
-
   list-style-type: none;
-
   text-wrap: nowrap;
 }
-
-// actions styles ----x

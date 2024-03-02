@@ -1,20 +1,21 @@
 .link {
-    @extend .text-13;
-    cursor: pointer;
+  @extend .text-13;
 
-    &_primary {
-        color: $primary;
+  cursor: pointer;
 
-        &:hover {
-            color: rgba($color: $primary, $alpha: 0.9);
-        }
+  &_primary {
+    color: $primary;
+
+    &:hover {
+      color: rgba($color: $primary, $alpha: 90%);
     }
+  }
 
-    &_danger {
-        color: $danger;
+  &_danger {
+    color: $danger;
 
-        &:hover {
-            color: rgba($color: $danger, $alpha: 0.9);
-        }
+    &:hover {
+      color: rgba($color: $danger, $alpha: 90%);
     }
+  }
 }

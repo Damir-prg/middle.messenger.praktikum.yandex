@@ -1,86 +1,87 @@
 .chats-content-messages {
-    &__message {
+  &__message {
+    width: 100%;
+    list-style: none;
+
+    &_date {
+      @extend .text-13;
+
+      margin: 10px 0;
+      color: $secondary;
+      text-align: center;
+    }
+
+    &_incoming {
+      @extend .flex-row-center-left;
+    }
+
+    &_outgoing {
+      @extend .flex-row-center-right;
+    }
+  }
+
+  &__image {
+    position: relative;
+    max-width: 400px;
+
+    img {
+      border-radius: 15px;
+      overflow: hidden;
+      border: 1px solid $delimiter;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    &-time {
+      @extend .text-11;
+
+      position: absolute;
+      bottom: 15px;
+      right: 10px;
+      color: $white;
+      padding: 2px 5px;
+      border-radius: 5px;
+      background: rgba($color: $secondary, $alpha: 50%);
+    }
+  }
+
+  &__text {
+    max-width: 400px;
+    padding: 10px 10px 5px;
+    border: 1px solid $delimiter;
+
+    &_incoming {
+      border-radius: 0 15px 15px;
+      background: rgba($color: $secondary, $alpha: 10%);
+
+      &-time {
+        @extend .text-11;
+
+        display: inline-block;
         width: 100%;
-        list-style: none;
-
-        &_date {
-            @extend .text-13;
-            margin: 10px 0;
-            color: $secondary;
-            text-align: center
-        }
-
-        &_incoming {
-            @extend .flex-row-center-left;
-        }
-
-        &_outgoing {
-            @extend .flex-row-center-right;
-        }
+        text-align: right;
+      }
     }
 
-    &__image {
-        position: relative;
-        max-width: 400px;
+    &_outgoing {
+      border-radius: 15px 15px 0;
+      background: $lightblue;
 
-        img {
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid $delimiter;
-            width: 100%;
-            object-fit: cover;
-        }
+      &-time {
+        @extend .text-11;
 
-        &-time {
-            @extend .text-11;
-            position: absolute;
-            bottom: 15px;
-            right: 10px;
-            color: $white;
-            padding: 2px 5px;
-
-            border-radius: 5px;
-
-            background: rgba($color: $secondary, $alpha: 0.5);
-        }
+        display: inline-block;
+        color: $primary;
+        width: 100%;
+        text-align: right;
+      }
     }
 
-    &__text {
-        max-width: 400px;
-        padding: 10px 10px 5px 10px;
-        border: 1px solid $delimiter;
+    &-message {
+      @extend .text-15;
 
-        &_incoming {
-            border-radius: 0 15px 15px 15px;
-            background: rgba($color: $secondary, $alpha: 0.1);
-
-            &-time {
-                @extend .text-11;
-                display: inline-block;
-                width: 100%;
-                text-align: right;
-            }
-        }
-
-        &_outgoing {
-            border-radius: 15px 15px 0 15px;
-            background: $lightblue;
-
-            &-time {
-                @extend .text-11;
-                display: inline-block;
-                color: $primary;
-                width: 100%;
-                text-align: right;
-            }
-        }
-
-        &-message {
-            @extend .text-15;
-            font-weight: 400;
-            color: $dark;
-        }
-
-
+      font-weight: 400;
+      color: $dark;
     }
+  }
 }

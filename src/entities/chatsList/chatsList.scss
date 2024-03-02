@@ -1,9 +1,9 @@
 .chats-aside {
-    &__list {
-        @extend .flex-col-to-top;
-        width: 100%;
-        flex-grow: 1;
+  &__list {
+    @extend .flex-col-to-top;
 
-        overflow: auto;
-    }
+    width: 100%;
+    flex-grow: 1;
+    overflow: auto;
+  }
 }
