@@ -34,7 +34,7 @@ export default class ProfileEditInfoForm extends Block<IProfileEditInfoFormProps
       for (const [name, value] of data) {
         console.log(name, ':', value);
       }
-      this?.props?.submitSideEvent?.();
+      this.props?.submitSideEvent?.();
     } else {
       console.error('validate error');
     }

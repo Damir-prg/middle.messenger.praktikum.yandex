@@ -1,24 +1,51 @@
-import { IProfileListItemProps } from 'entities/profileListItem';
 import Block from 'shared/core/Block';
 import { TEvents } from 'shared/core/types';
 import { navigate } from 'shared/utilities/navigate';
 
 interface IProfileProps {
-  profileListItems: IProfileListItemProps[];
+  editInfoEvents?: Partial<TEvents>;
+  editPasswordEvents?: Partial<TEvents>;
   exitEvents?: Partial<TEvents>;
+  editInfoSideEvent?: () => void;
+  editPasswordSideEvent?: () => void;
+  isEditImage?: boolean;
+  isNavigateVisible?: boolean;
+  content?: 'info' | 'editInfo' | 'password';
 }
 
 export default class Profile extends Block<IProfileProps> {
   constructor() {
     super({
-      profileListItems: [
-        { title: 'Почта', value: 'pochta@yandex.ru' },
-        { title: 'Логин', value: 'ivanivanov' },
-        { title: 'Имя', value: 'Иван' },
-        { title: 'Фамилия', value: 'Иванов' },
-        { title: 'Имя в чате', value: 'Иван' },
-        { title: 'Телефон', value: '+7 (909) 967 30 30' },
-      ],
+      isNavigateVisible: true,
+      isEditImage: false,
+      content: 'info',
+      editInfoEvents: {
+        click: () =>
+          this.setProps({
+            isNavigateVisible: false,
+            isEditImage: true,
+            content: 'editInfo',
+          }),
+      },
+      editInfoSideEvent: () =>
+        this.setProps({
+          isNavigateVisible: true,
+          isEditImage: false,
+          content: 'info',
+        }),
+      editPasswordEvents: {
+        click: () =>
+          this.setProps({
+            isNavigateVisible: false,
+            content: 'password',
+          }),
+      },
+      editPasswordSideEvent: () => {
+        this.setProps({
+          isNavigateVisible: true,
+          content: 'info',
+        });
+      },
       exitEvents: {
         click: () => navigate('authLogin'),
       },
@@ -26,23 +53,54 @@ export default class Profile extends Block<IProfileProps> {
   }
 
   protected render(): string {
+    const { isNavigateVisible, content } = this.props;
     return `
         {{#RowLayout}}
           {{{ ProfileSidebar }}}
           {{#ProfileContent}}
-            {{{ ProfileImage isEdit=true }}}
-            {{{ ProfileEditPassword }}}
-            {{#ProfileList}}
+            {{{ ProfileImage isEdit=isEditImage }}}
+            
+            ${
+              content === 'editInfo'
+                ? `
+                    {{{ ProfileEditInfoForm submitSideEvent=editInfoSideEvent }}}
+                  `
+                : content === 'password'
+                  ? `
+                    {{{ ProfileEditPasswordForm submitSideEvent=editPasswordSideEvent }}}
+                  `
+                  : '{{{ ProfileInfo }}}'
+            }
+
+            ${
+              isNavigateVisible
+                ? `
+              {{#ProfileList}}
               {{#ProfileListItem}}
-                {{{Link label="Изменить данные" linkType="primary" }}}
+                {{{ Link 
+                  label="Изменить данные" 
+                  linkType="primary" 
+                  events=editInfoEvents
+                }}}
               {{/ProfileListItem}}
               {{#ProfileListItem}}
-                {{{Link label="Изменить пароль" linkType="primary" }}}
+                {{{ Link 
+                    label="Изменить пароль" 
+                    linkType="primary" 
+                    events=editPasswordEvents
+                  }}}
               {{/ProfileListItem}}
               {{#ProfileListItem}}
-                {{{Link label="Выйти" linkType="danger" events=exitEvents }}}
+                {{{ Link 
+                    label="Выйти" 
+                    linkType="danger" 
+                    events=exitEvents 
+                }}}
               {{/ProfileListItem}}
             {{/ProfileList}}
+              `
+                : ''
+            }
           {{/ProfileContent}}
         {{/RowLayout}}
     `;
