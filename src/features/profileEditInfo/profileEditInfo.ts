@@ -1,6 +1,7 @@
 import ProfileEditForm from 'entities/profileEditForm';
 import Block from 'shared/core/Block';
 import { TEvents } from 'shared/core/types';
+import Button from 'shared/ui/button';
 import Input from 'shared/ui/input';
 import { REGEX } from 'shared/utilities';
 
@@ -16,7 +17,7 @@ export interface IProfileEditInfoProps {
 
 type Ref = {
   profileEditForm?: ProfileEditForm;
-  profileEditButton?: HTMLButtonElement;
+  profileEditButton?: Button;
   email?: Input;
   login?: Input;
   firstName?: Input;

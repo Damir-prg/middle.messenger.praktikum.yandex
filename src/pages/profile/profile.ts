@@ -31,7 +31,7 @@ export default class Profile extends Block<IProfileProps> {
           {{{ ProfileSidebar }}}
           {{#ProfileContent}}
             {{{ ProfileImage isEdit=true }}}
-            {{{ ProfileEditInfo }}}
+            {{{ ProfileEditPassword }}}
             {{#ProfileList}}
               {{#ProfileListItem}}
                 {{{Link label="Изменить данные" linkType="primary" }}}
