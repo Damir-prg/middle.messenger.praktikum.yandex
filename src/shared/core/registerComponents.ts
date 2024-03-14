@@ -1,8 +1,20 @@
 import Handlebars from 'handlebars';
-import Block from './Block';
+import Block, { RefType } from './Block';
 import { HelperOptions } from 'handlebars';
 
-export function registerComponent(name: string, Component: typeof Block) {
+interface BlockConstructor<Props extends object, R extends RefType> {
+  new (props: Props): Block<Props, R>;
+}
+
+export interface IChildren<Props extends object, R extends RefType> {
+  component: Block<Props, R>;
+  embed: (fragment: DocumentFragment) => void;
+}
+
+export function registerComponent<Props extends object, R extends RefType>(
+  name: string,
+  Component: BlockConstructor<Props, R>,
+) {
   if (name in Handlebars.helpers) {
     throw `The ${name} component is already registered!`;
   }
