@@ -1,6 +1,6 @@
 import { registerComponent } from 'shared/core/registerComponents';
 import LoginFields from './loginFields';
-import AuthRegisterFields from './authRegisterFields';
+import SignUpFields from './signUpFields';
 import AuthSubmit from './authSubmit';
 import ChatsAsideHeaderFields from './chatsAsideHeaderFields';
 import ChatsAsideList from './chatsAsideList';
@@ -12,7 +12,7 @@ import ProfileEditPasswordFields from './profileEditPasswordFields';
 
 export function registerFeatures() {
   registerComponent('LoginFields', LoginFields);
-  registerComponent('AuthRegisterFields', AuthRegisterFields);
+  registerComponent('SignUpFields', SignUpFields);
   registerComponent('AuthSubmit', AuthSubmit);
   registerComponent('ChatsAsideHeaderFields', ChatsAsideHeaderFields);
   registerComponent('ChatsAsideList', ChatsAsideList);

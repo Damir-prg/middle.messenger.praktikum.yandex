@@ -1,22 +1,22 @@
 import AuthForm from 'entities/authForm';
-import AuthRegisterFields from 'features/authRegisterFields';
+import SignUpFormFields from 'features/signUpFields';
 import AuthSubmit from 'features/authSubmit';
 import Block from 'shared/core/Block';
 import { TEvents } from 'shared/core/types';
 import { navigate } from 'shared/utilities/navigate';
 
-export interface IAuthRegisterFormProps {
+export interface ISignUpFormProps {
   events?: Partial<TEvents>;
   onLinkEvents?: Partial<TEvents>;
 }
 
 type Ref = {
   form: AuthForm;
-  registerFields: AuthRegisterFields;
+  registerFields: SignUpFormFields;
   authSubmits: AuthSubmit;
 };
 
-export default class AuthRegisterForm extends Block<IAuthRegisterFormProps, Ref> {
+export default class SignUpForm extends Block<ISignUpFormProps, Ref> {
   constructor() {
     super({
       events: {
@@ -46,7 +46,7 @@ export default class AuthRegisterForm extends Block<IAuthRegisterFormProps, Ref>
     return `
         {{#AuthForm events=events ref="form"}}
             <h3 class="auth-form__title">Регистрация</h3>
-            {{{ AuthRegisterFields ref="registerFields"}}}
+            {{{ SignUpFields ref="registerFields"}}}
             {{{ AuthSubmit
                 ref="authSubmits"
                 primaryLabel="Зарегестрироваться"

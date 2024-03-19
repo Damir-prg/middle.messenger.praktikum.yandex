@@ -3,7 +3,7 @@ import { TEvents } from 'shared/core/types';
 import Input from 'shared/ui/input';
 import { REGEX } from 'shared/utilities';
 
-export interface IAuthRegisterProps {
+export interface ISignUpFieldsProps {
   emailEvents?: Partial<TEvents>;
   loginEvents?: Partial<TEvents>;
   firstNameEvents?: Partial<TEvents>;
@@ -23,7 +23,7 @@ type Ref = {
   repeatPasswordInput?: Input;
 };
 
-export default class AuthRegisterFields extends Block<IAuthRegisterProps, Ref> {
+export default class SignUpFields extends Block<ISignUpFieldsProps, Ref> {
   constructor() {
     super({
       emailEvents: {

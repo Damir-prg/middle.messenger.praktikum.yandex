@@ -1,5 +1,5 @@
 import Block from 'shared/core/Block';
-import AuthRegisterForm from 'widgets/authRegisterForm';
+import AuthRegisterForm from 'widgets/signUpForm';
 
 type Ref = {
   authRegisterForm: AuthRegisterForm;
@@ -10,7 +10,7 @@ export default class SignUp extends Block<object, Ref> {
     return `
         {{#CenterLayout}}
             {{#BlockContainer classes="auth-form"}}
-                {{{ AuthRegisterForm ref="authRegisterForm" }}}
+                {{{ SignUpForm ref="authRegisterForm" }}}
             {{/BlockContainer}}
         {{/CenterLayout}}
         `;
