@@ -1,18 +1,19 @@
 import Block from 'shared/core/Block';
 import { TEvents } from 'shared/core/types';
+import Input from 'shared/ui/input';
 
-interface IAuthLoginProps {
+interface ILoginFieldsProps {
   loginEvents?: Partial<TEvents>;
   passwordEvents?: Partial<TEvents>;
 }
 
 type Ref = {
   loginFields: HTMLDivElement;
-  loginInput: HTMLInputElement;
-  passwordInput: HTMLInputElement;
+  loginInput: Input;
+  passwordInput: Input;
 };
 
-export default class AuthLoginFields extends Block<IAuthLoginProps, Ref> {
+export default class AuthLoginFields extends Block<ILoginFieldsProps, Ref> {
   constructor() {
     super({});
   }

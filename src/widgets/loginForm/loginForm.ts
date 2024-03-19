@@ -1,11 +1,11 @@
 import AuthForm from 'entities/authForm';
-import AuthLoginFields from 'features/authLoginFields';
+import AuthLoginFields from 'features/loginFields';
 import AuthSubmit from 'features/authSubmit';
 import Block from 'shared/core/Block';
 import { TEvents } from 'shared/core/types';
 import { navigate } from 'shared/utilities/navigate';
 
-export interface IAuthLoginFormProps {
+export interface ILoginFormProps {
   events?: Partial<TEvents>;
   onSubmitEvents?: Partial<TEvents>;
   onLinkEvents?: Partial<TEvents>;
@@ -17,7 +17,7 @@ type Ref = {
   authSubmits: AuthSubmit;
 };
 
-export default class AuthLoginForm extends Block<IAuthLoginFormProps, Ref> {
+export default class LoginForm extends Block<ILoginFormProps, Ref> {
   constructor() {
     super({
       events: {
@@ -47,7 +47,7 @@ export default class AuthLoginForm extends Block<IAuthLoginFormProps, Ref> {
             ref="form"
         }}
             <h3 class="auth-form__title">Вход</h3>
-            {{{ AuthLoginFields 
+            {{{ LoginFields 
                 ref="loginFields" 
             }}}
             {{{ AuthSubmit
