@@ -1,7 +1,7 @@
 import './index.scss';
 import { initialComponents } from 'app/initialComponents';
-import { navigate } from 'shared/utilities/navigate';
+import { initialRoutes } from './app/withRoutes';
 
 initialComponents();
 
-document.addEventListener('DOMContentLoaded', () => navigate('welcome'));
+initialRoutes();

@@ -1,6 +1,7 @@
+import { routes } from 'app/withRoutes';
 import Block from 'shared/core/Block';
 import { TEvents } from 'shared/core/types';
-import { navigate } from 'shared/utilities/navigate';
+import Router from 'shared/router/Router';
 
 export interface TChatsAsideHeaderLinkProps {
   events?: Partial<TEvents>;
@@ -13,7 +14,7 @@ export default class ChatsAsideHeaderLink extends Block<TChatsAsideHeaderLinkPro
   constructor() {
     super({
       events: {
-        click: () => navigate('profile'),
+        click: () => Router.go(routes.profile.route),
       },
     });
   }

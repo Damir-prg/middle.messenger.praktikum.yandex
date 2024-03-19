@@ -3,7 +3,8 @@ import SignUpFormFields from 'features/signUpFields';
 import AuthSubmit from 'features/authSubmit';
 import Block from 'shared/core/Block';
 import { TEvents } from 'shared/core/types';
-import { navigate } from 'shared/utilities/navigate';
+import Router from 'shared/router/Router';
+import { routes } from 'app/withRoutes';
 
 export interface ISignUpFormProps {
   events?: Partial<TEvents>;
@@ -23,7 +24,7 @@ export default class SignUpForm extends Block<ISignUpFormProps, Ref> {
         submit: (e) => this.handlerSubmit(e),
       },
       onLinkEvents: {
-        click: () => navigate('authLogin'),
+        click: () => Router.go(routes.login.route),
       },
     });
   }

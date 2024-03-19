@@ -1,6 +1,7 @@
+import { routes } from 'app/withRoutes';
 import Block from 'shared/core/Block';
 import { TEvents } from 'shared/core/types';
-import { navigate } from 'shared/utilities/navigate';
+import Router from 'shared/router/Router';
 
 interface IProfileProps {
   editInfoEvents?: Partial<TEvents>;
@@ -47,7 +48,7 @@ export default class Profile extends Block<IProfileProps> {
         });
       },
       exitEvents: {
-        click: () => navigate('authLogin'),
+        click: () => Router.go(routes.login.route),
       },
     });
   }

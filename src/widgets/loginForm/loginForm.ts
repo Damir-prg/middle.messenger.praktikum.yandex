@@ -3,7 +3,8 @@ import AuthLoginFields from 'features/loginFields';
 import AuthSubmit from 'features/authSubmit';
 import Block from 'shared/core/Block';
 import { TEvents } from 'shared/core/types';
-import { navigate } from 'shared/utilities/navigate';
+import Router from 'shared/router/Router';
+import { routes } from 'app/withRoutes';
 
 export interface ILoginFormProps {
   events?: Partial<TEvents>;
@@ -25,7 +26,7 @@ export default class LoginForm extends Block<ILoginFormProps, Ref> {
       },
       onSubmitEvents: {},
       onLinkEvents: {
-        click: () => navigate('authRegister'),
+        click: () => Router.go(routes.signUp.route),
       },
     });
   }
@@ -37,7 +38,7 @@ export default class LoginForm extends Block<ILoginFormProps, Ref> {
     for (const [name, value] of data) {
       console.log(name, ':', value);
     }
-    navigate('chats');
+    Router.go(routes.messenger.route);
   }
 
   protected render(): string {

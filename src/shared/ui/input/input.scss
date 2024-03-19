@@ -50,12 +50,12 @@
       visibility: visible;
     }
 
-    &~.input__label {
+    & ~ .input__label {
       display: none;
     }
   }
 
-  &__element:is(:focus, :not(:placeholder-shown))~.input__label {
+  &__element:is(:focus, :not(:placeholder-shown)) ~ .input__label {
     @extend .text-11;
 
     top: 10px;
