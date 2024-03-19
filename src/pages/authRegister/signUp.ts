@@ -5,7 +5,7 @@ type Ref = {
   authRegisterForm: AuthRegisterForm;
 };
 
-export default class AuthRegister extends Block<object, Ref> {
+export default class SignUp extends Block<object, Ref> {
   protected render(): string {
     return `
         {{#CenterLayout}}

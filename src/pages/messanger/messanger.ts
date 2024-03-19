@@ -2,7 +2,7 @@ import Block from 'shared/core/Block';
 import ChatsSidebar from 'widgets/chatsSidebar';
 import ChatsMain, { IChatsMainProps } from 'widgets/chatsMain';
 
-interface IChatsProps {
+interface IMessangerProps {
   onChangeChat?: (data: IChatsMainProps) => void;
 }
 
@@ -11,7 +11,7 @@ type Ref = {
   main: ChatsMain;
 };
 
-export default class Chats extends Block<IChatsProps, Ref> {
+export default class Messanger extends Block<IMessangerProps, Ref> {
   constructor() {
     super({
       onChangeChat: (data: IChatsMainProps) => {

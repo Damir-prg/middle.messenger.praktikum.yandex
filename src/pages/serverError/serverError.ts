@@ -1,6 +1,6 @@
 import Block from 'shared/core/Block';
 
-export default class Error500 extends Block<object> {
+export default class ServerError extends Block<object> {
   protected render(): string {
     return `
             {{#CenterLayout}}

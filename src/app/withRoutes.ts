@@ -1,8 +1,8 @@
-import AuthLogin from 'pages/authLogin';
-import AuthRegister from 'pages/authRegister';
-import Chats from 'pages/chats';
-import Error404 from 'pages/error404';
-import Error500 from 'pages/error500';
+import AuthLogin from 'pages/login';
+import AuthRegister from 'pages/signUp';
+import Chats from 'pages/messanger';
+import Error404 from 'pages/notFound';
+import Error500 from 'pages/serverError';
 import Profile from 'pages/profile';
 import Welcome from 'pages/welcome';
 

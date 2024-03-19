@@ -1,6 +1,6 @@
 import Block from 'shared/core/Block';
 
-export default class Error404 extends Block<object> {
+export default class NotFound extends Block<object> {
   protected render(): string {
     return `
             {{#CenterLayout}}

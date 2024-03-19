@@ -5,7 +5,7 @@ type Ref = {
   authLoginForm: AuthLoginForm;
 };
 
-export default class AuthLogin extends Block<object, Ref> {
+export default class Login extends Block<object, Ref> {
   protected render(): string {
     return `
             {{#CenterLayout}}
