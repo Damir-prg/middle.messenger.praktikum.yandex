@@ -5,6 +5,8 @@ import Block from 'shared/core/Block';
 import { TEvents } from 'shared/core/types';
 import Router from 'shared/router/Router';
 import { routes } from 'app/withRoutes';
+import { api } from 'shared/api';
+import { IUser } from 'shared/types/api';
 
 export interface ILoginFormProps {
   events?: Partial<TEvents>;
@@ -35,10 +37,16 @@ export default class LoginForm extends Block<ILoginFormProps, Ref> {
     e.preventDefault();
     e.stopPropagation();
     const data = this.refs.form.getFormData();
+    const dataRequest: Record<string, string> = {};
     for (const [name, value] of data) {
-      console.log(name, ':', value);
+      if (typeof value === 'string') {
+        dataRequest[name] = value;
+      }
     }
-    Router.go(routes.messenger.route);
+    console.log(dataRequest);
+    api.signIn(dataRequest as unknown as IUser.SignInRequest).then(() => {
+      Router.go(routes.messenger.route);
+    });
   }
 
   protected render(): string {
