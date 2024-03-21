@@ -5,6 +5,8 @@ import Block from 'shared/core/Block';
 import { TEvents } from 'shared/core/types';
 import Router from 'shared/router/Router';
 import { routes } from 'app/withRoutes';
+import { IUser } from 'shared/types/api';
+import { api } from 'shared/api';
 
 export interface ISignUpFormProps {
   events?: Partial<TEvents>;
@@ -35,9 +37,16 @@ export default class SignUpForm extends Block<ISignUpFormProps, Ref> {
     const validateResult = this.refs.registerFields.validateAll();
     if (validateResult) {
       const data = this.refs.form.getFormData();
+      const dataRequest: Record<string, string> = {};
       for (const [name, value] of data) {
-        console.log(name, ':', value);
+        if (typeof value === 'string') {
+          dataRequest[name] = value;
+        }
       }
+      console.log(dataRequest);
+      api.signUp(dataRequest as unknown as IUser.SignUpRequest).then(() => {
+        Router.go(routes.messenger.route);
+      });
     } else {
       console.error('validate error');
     }
