@@ -1,4 +1,5 @@
 import { IProfileListItemProps } from 'entities/profileListItem';
+import { api } from 'shared/api';
 import Block from 'shared/core/Block';
 
 export interface IProfileInfoProps {
@@ -16,6 +17,19 @@ export default class ProfileInfo extends Block<IProfileInfoProps> {
         { title: 'Имя в чате', value: 'Иван' },
         { title: 'Телефон', value: '+7 (909) 967 30 30' },
       ],
+    });
+
+    api.userInfo().then((data) => {
+      this.setProps({
+        profileListItems: [
+          { title: 'Почта', value: data.email },
+          { title: 'Логин', value: data.login },
+          { title: 'Имя', value: data.first_name },
+          { title: 'Фамилия', value: data.second_name },
+          { title: 'Имя в чате', value: data.display_name },
+          { title: 'Телефон', value: data.phone },
+        ],
+      });
     });
   }
 
