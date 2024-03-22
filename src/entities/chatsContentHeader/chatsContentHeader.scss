@@ -52,7 +52,7 @@
       background-color: $lightblue;
       outline: none;
 
-      &>.chats-content-header__options__buttons {
+      & > .chats-content-header__options__buttons {
         @extend .flex-col-to-top-left;
 
         visibility: visible;
