@@ -22,6 +22,11 @@ export default class ChatsAsideHeaderFields extends Block<IChatsAsideHeaderField
     return `
         {{#ChatsAsideHeader ref="headerWrapper" }}
             {{{ ChatsAsideHeaderLink ref="headerLink" }}}
+            {{{ Button
+                label="Новый чат"
+                type="button"
+                buttonType="primary"
+            }}}
             {{{ Search ref="searchInput" }}}
         {{/ChatsAsideHeader}}       
       `;
