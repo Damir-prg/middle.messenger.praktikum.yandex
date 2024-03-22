@@ -1,26 +1,30 @@
 import { HTTPTransport } from './httpTransport';
 import { IUser, ApiError } from 'shared/types/api';
 
-const authApi = new HTTPTransport('');
+const transport = new HTTPTransport('');
 
 export default class UserApi {
   async create(data: IUser.SignUpRequest): Promise<IUser.SignUpResponse | ApiError> {
-    return authApi.post<IUser.SignUpResponse>('/auth/signup', { data });
+    return transport.post<IUser.SignUpResponse>('/auth/signup', { data });
   }
 
   async login(data: IUser.SignInRequest): Promise<IUser.SignInResponse | ApiError> {
-    return authApi.post<IUser.SignInResponse>('/auth/signin', { data });
+    return transport.post<IUser.SignInResponse>('/auth/signin', { data });
   }
 
   async info(): Promise<IUser.InfoResponse | ApiError> {
-    return authApi.get('/auth/user');
+    return transport.get('/auth/user');
   }
 
   async logout(): Promise<IUser.LogoutResponse | ApiError> {
-    return authApi.post('/auth/logout');
+    return transport.post('/auth/logout');
   }
 
   async changeInfo(data: IUser.InfoResponse): Promise<IUser.InfoResponse | ApiError> {
-    return authApi.put<IUser.InfoResponse>('/user/profile', { data });
+    return transport.put<IUser.InfoResponse>('/user/profile', { data });
+  }
+
+  async changePassword(data: IUser.PasswordRequest): Promise<IUser.PasswordResponse | ApiError> {
+    return transport.put<IUser.PasswordResponse>('/user/password', { data });
   }
 }

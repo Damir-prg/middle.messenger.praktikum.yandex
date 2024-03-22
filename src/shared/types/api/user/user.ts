@@ -30,3 +30,10 @@ export type InfoResponse = {
 };
 
 export type LogoutResponse = 'Ok';
+
+export interface PasswordRequest {
+  oldPassword: string;
+  newPassword: string;
+}
+
+export type PasswordResponse = 'Ok';

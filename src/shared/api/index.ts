@@ -31,4 +31,8 @@ export const api = {
     const response = await userApi.changeInfo(data);
     return errorHandler<IUser.InfoResponse>(response);
   },
+  changePassword: async (data: IUser.PasswordRequest): Promise<IUser.PasswordResponse> => {
+    const response = await userApi.changePassword(data);
+    return errorHandler<IUser.PasswordResponse>(response);
+  },
 };
