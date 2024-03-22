@@ -32,6 +32,7 @@
 
         &__label {
           @extend.flex-col-center;
+
           cursor: pointer;
           width: 100%;
           height: 100%;
@@ -42,7 +43,7 @@
         }
       }
 
-      &:hover > &__hover {
+      &:hover>&__hover {
         opacity: 1;
         visibility: visible;
       }
