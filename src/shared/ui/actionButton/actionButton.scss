@@ -4,7 +4,6 @@
   background: transparent;
   color: $primary;
   gap: 5px;
-  border: none;
   cursor: pointer;
   border: 1px solid transparent;
   padding: 5px 10px;
@@ -17,9 +16,6 @@
   &:focus,
   &:focus-visible {
     outline: none;
-  }
-
-  &__icon {
   }
 
   &__text {
