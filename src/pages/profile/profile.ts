@@ -1,4 +1,5 @@
 import { routes } from 'app/withRoutes';
+import { api } from 'shared/api';
 import Block from 'shared/core/Block';
 import { TEvents } from 'shared/core/types';
 import Router from 'shared/router/Router';
@@ -48,7 +49,7 @@ export default class Profile extends Block<IProfileProps> {
         });
       },
       exitEvents: {
-        click: () => Router.go(routes.login.route),
+        click: () => api.logout().finally(() => Router.go(routes.login.route)),
       },
     });
   }
