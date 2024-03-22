@@ -60,11 +60,10 @@ export default class ProfileEditPasswordFields extends Block<IProfileEditPasswor
             <span class="profile-content-list__item__title">Старый пароль</span>
             {{{ Input
                 placeholder="Старый пароль"
-                name="old_password"
+                name="oldPassword"
                 type="password"
                 ref="oldPassword"
                 classes="input__profile"
-                defaultValue="Qwerty123"
                 events=oldPasswordEvents
             }}}
         {{/ProfileListItem}}
@@ -72,7 +71,7 @@ export default class ProfileEditPasswordFields extends Block<IProfileEditPasswor
             <span class="profile-content-list__item__title">Новый пароль</span>
             {{{ Input
                 placeholder="Новый пароль"
-                name="new_password"
+                name="newPassword"
                 type="password"
                 ref="newPassword"
                 classes="input__profile"
@@ -83,7 +82,7 @@ export default class ProfileEditPasswordFields extends Block<IProfileEditPasswor
             <span class="profile-content-list__item__title">Повторите новый пароль</span>
             {{{ Input
                 placeholder="Повторите новый пароль"
-                name="new_password_repeat"
+                name="newPasswordRepeat"
                 type="password"
                 ref="newPasswordRepeat"
                 classes="input__profile"

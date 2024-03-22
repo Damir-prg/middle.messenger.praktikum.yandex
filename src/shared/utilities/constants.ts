@@ -9,6 +9,8 @@ export const users: Array<IChatsListItemProps> = new Array(20).fill({
   count: 1,
 });
 
+export const mockUserAvatar = 'https://randomuser.me/api/portraits/lego/6.jpg';
+
 const imageUrl1 = `https://us.123rf.com/450wm/hihitetlin/hihitetlin2006/
 hihitetlin200600732/150527513-male-in-shirt-man-hands-holds-retro-camera-horizontal-close-up.jpg?ver=6`;
 

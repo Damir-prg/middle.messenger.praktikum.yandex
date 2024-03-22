@@ -14,6 +14,7 @@ import ProfileContent from './profileContent';
 import ProfileList from './profileList';
 import ProfileListItem from './profileListItem';
 import ProfileEditForm from './profileEditForm';
+import Modal from './modal';
 
 export function registerEntities() {
   registerComponent('Error', Error);
@@ -31,4 +32,5 @@ export function registerEntities() {
   registerComponent('ProfileList', ProfileList);
   registerComponent('ProfileListItem', ProfileListItem);
   registerComponent('ProfileEditForm', ProfileEditForm);
+  registerComponent('Modal', Modal);
 }
