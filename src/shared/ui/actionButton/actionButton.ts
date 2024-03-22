@@ -21,29 +21,11 @@ const innerImage = {
 };
 
 export default class ActionButton extends Block<IActionButtonProps, Ref> {
-  private innerText = {
-    add: 'Добавить пользователя',
-    del: 'Удалить пользователя',
-  };
-
-  private innerImage = {
-    add: plus,
-    del: minus,
-  };
   constructor(props: IActionButtonProps) {
     super({
       ...props,
       type: props?.type ? props?.type : 'add',
     });
-
-    this.innerText = {
-      add: 'Добавить пользователя',
-      del: 'Удалить пользователя',
-    };
-    this.innerImage = {
-      add: plus,
-      del: minus,
-    };
   }
 
   protected render(): string {
