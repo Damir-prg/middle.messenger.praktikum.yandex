@@ -10,6 +10,20 @@ type Ref = {
 };
 
 export default class Modal extends Block<IModalProps, Ref> {
+  constructor(props: IModalProps) {
+    super({
+      ...props,
+      events: {
+        click: (e) => {
+          const target = e.target as HTMLElement;
+          if (target.classList.contains('modal')) {
+            this.close();
+          }
+        },
+      },
+    });
+  }
+
   public open() {
     this.refs.modal?.classList.add('modal_active');
   }
