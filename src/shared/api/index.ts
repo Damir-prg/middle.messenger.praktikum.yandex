@@ -35,4 +35,8 @@ export const api = {
     const response = await userApi.changePassword(data);
     return errorHandler<IUser.PasswordResponse>(response);
   },
+  changeAvatar: async (data: FormData): Promise<IUser.InfoResponse> => {
+    const response = await userApi.changeAvatar(data);
+    return errorHandler<IUser.InfoResponse>(response);
+  },
 };

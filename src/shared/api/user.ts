@@ -27,4 +27,8 @@ export default class UserApi {
   async changePassword(data: IUser.PasswordRequest): Promise<IUser.PasswordResponse | ApiError> {
     return transport.put<IUser.PasswordResponse>('/user/password', { data });
   }
+
+  async changeAvatar(data: FormData): Promise<IUser.InfoResponse | ApiError> {
+    return transport.put<IUser.InfoResponse>('/user/profile/avatar', { data });
+  }
 }
