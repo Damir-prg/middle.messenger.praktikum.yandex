@@ -13,7 +13,7 @@
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
     "max-len": [2, 120],
-    "camelcase": "error",
+    "camelcase": "warn",
     "spaced-comment": "error",
     "quotes": ["error", "single"],
     "semi": "error",

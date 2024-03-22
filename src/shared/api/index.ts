@@ -27,4 +27,8 @@ export const api = {
     const response = await userApi.logout();
     return errorHandler<IUser.LogoutResponse>(response);
   },
+  changeInfo: async (data: IUser.InfoResponse): Promise<IUser.InfoResponse> => {
+    const response = await userApi.changeInfo(data);
+    return errorHandler<IUser.InfoResponse>(response);
+  },
 };
