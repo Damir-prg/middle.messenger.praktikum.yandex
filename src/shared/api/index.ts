@@ -1,7 +1,9 @@
-import { IUser } from 'shared/types/api';
+import { IChat, IUser } from 'shared/types/api';
 import UserApi from './user';
+import ChatApi from './chat';
 
 const userApi = new UserApi();
+const chatApi = new ChatApi();
 
 const errorHandler = <T>(response: any): T => {
   if (response?.reason) {
@@ -38,5 +40,10 @@ export const api = {
   changeAvatar: async (data: FormData): Promise<IUser.InfoResponse> => {
     const response = await userApi.changeAvatar(data);
     return errorHandler<IUser.InfoResponse>(response);
+  },
+
+  getChats: async (data?: IChat.GETChatUsersRequest): Promise<IChat.GETChatsResponse[]> => {
+    const response = await chatApi.getChats(data);
+    return errorHandler<IChat.GETChatsResponse[]>(response);
   },
 };

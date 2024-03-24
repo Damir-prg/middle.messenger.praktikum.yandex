@@ -1,0 +1,13 @@
+import { HTTPTransport } from './httpTransport';
+import { IChat, ApiError } from 'shared/types/api';
+const transport = new HTTPTransport('');
+
+export default class ChatApi {
+  async getChats(data?: IChat.GETChatUsersRequest): Promise<IChat.GETChatsResponse[] | ApiError> {
+    return transport.get('/chats', { data });
+  }
+
+  async createChat(data?: IChat.CreateChatRequest): Promise<IChat.CreateChatResponse | ApiError> {
+    return transport.post<IChat.CreateChatResponse>('/chats', { data });
+  }
+}
