@@ -5,8 +5,9 @@ import { IChat } from 'shared/types/api';
 
 export interface TChatsContentHeaderProps {
   chatConfig?: IChat.GETChatsResponse;
-  updateChatList?: () => void;
+  onChangeChat?: () => void;
   events?: Partial<TEvents>;
+  onDeleteChatEvents?: Partial<TEvents>;
 }
 
 type Ref = {
@@ -38,6 +39,17 @@ export default class ChatsContentHeader extends Block<TChatsContentHeaderProps, 
           }
         },
       },
+      onDeleteChatEvents: {
+        click: () => {
+          const chatId = this.props.chatConfig?.id;
+          if (chatId) {
+            api.deleteChat({ chatId }).then(() => {
+              window.updateChatList();
+              window.onChangeChat({ isChatOpen: false });
+            });
+          }
+        },
+      },
     });
   }
 
@@ -56,19 +68,11 @@ export default class ChatsContentHeader extends Block<TChatsContentHeaderProps, 
                   <h4 class="chats-content-header__profile__name">${chatConfig?.title}</h4>
                   <input id="avatar" type="file" ref="input" class="chats-content-header__profile__input">
             </div>
-            <button class="chats-content-header__options">
-                <div class="chats-content-header__options__buttons">
-                  {{{ ActionButton type="add" }}}
-                  {{{ ActionButton type="del" }}}
-                  {{{ ActionButton type="del" title="Удалить чат" }}}
-                </div>
-                
-                <svg width="3" height="16" viewBox="0 0 3 16" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="1.5" cy="2" r="1.5"></circle>
-                    <circle cx="1.5" cy="8" r="1.5"></circle>
-                    <circle cx="1.5" cy="14" r="1.5"></circle>
-                </svg>
-            </button>
+            <div class="chats-content-header__options">
+              {{{ ActionButton type="add" }}}
+              {{{ ActionButton type="del" }}}
+              {{{ ActionButton type="del" title="Удалить чат" events=onDeleteChatEvents}}}
+            </div>
         </article>   
         `;
   }

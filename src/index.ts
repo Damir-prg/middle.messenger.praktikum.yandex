@@ -3,10 +3,12 @@ import { initialComponents } from 'app/initialComponents';
 import { initialRoutes, routes } from './app/withRoutes';
 import { api } from 'shared/api';
 import Router from 'shared/router/Router';
+import { IChatsMainProps } from 'widgets/chatsMain';
 
 declare global {
   interface Window {
     updateChatList: () => void;
+    onChangeChat: (data: IChatsMainProps) => void;
   }
 }
 

@@ -24,7 +24,6 @@ export default class ChatsSidebar extends Block<IChatsSidebarProps, Ref> {
   }
 
   public updateChatList() {
-    console.log('updated');
     this.refs.list.updateList();
   }
   protected render(): string {

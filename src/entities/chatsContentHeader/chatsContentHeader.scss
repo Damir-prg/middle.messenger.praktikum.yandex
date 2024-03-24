@@ -37,47 +37,6 @@
   }
 
   &__options {
-    @extend .flex-col-center;
-
-    position: relative;
-    width: 25px;
-    height: 25px;
-    background: transparent;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    fill: $dark;
-    transition: all 0.25s;
-
-    &__buttons {
-      display: none;
-      visibility: hidden;
-    }
-
-    &:hover {
-      fill: $primary;
-      background-color: $lightblue;
-    }
-
-    &:focus,
-    &:focus-visible {
-      fill: $primary;
-      background-color: $lightblue;
-      outline: none;
-
-      & > .chats-content-header__options__buttons {
-        @extend .flex-col-to-top-left;
-
-        visibility: visible;
-        position: absolute;
-        top: 30px;
-        right: 20px;
-        gap: 5px;
-        padding: 10px 15px;
-        background: $white;
-        box-shadow: 0 0 6px rgba($color: $dark, $alpha: 10%);
-        border-radius: 10px;
-      }
-    }
+    @extend .flex-row-between;
   }
 }

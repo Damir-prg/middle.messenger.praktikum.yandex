@@ -14,4 +14,8 @@ export default class ChatApi {
   async changeAvatar(data: FormData): Promise<IChat.GETChatsResponse | ApiError> {
     return transport.put<IChat.GETChatsResponse>('/chats/avatar', { data });
   }
+
+  async deleteChat(data: { chatId: number }): Promise<void | ApiError> {
+    return transport.delete<void>('/chats', { data });
+  }
 }

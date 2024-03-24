@@ -55,4 +55,9 @@ export const api = {
     const response = await chatApi.changeAvatar(data);
     return errorHandler<IChat.GETChatsResponse>(response);
   },
+
+  deleteChat: async (data: { chatId: number }): Promise<void> => {
+    const response = await chatApi.deleteChat(data);
+    return errorHandler<void>(response);
+  },
 };

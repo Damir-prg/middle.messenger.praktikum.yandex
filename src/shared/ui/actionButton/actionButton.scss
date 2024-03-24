@@ -1,6 +1,7 @@
 .action-button {
   @extend .flex-row-center-left;
 
+  z-index: 2;
   background: transparent;
   color: $primary;
   gap: 5px;

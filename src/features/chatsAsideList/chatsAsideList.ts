@@ -34,7 +34,7 @@ export default class ChatsAsideList extends Block<IChatsAsideListProps, Ref> {
           ...chat,
           events: {
             click: () => {
-              this.props?.onChangeChat?.({
+              window.onChangeChat({
                 chatConfig: chat,
                 isChatOpen: true,
                 messages: CONSTANTS.messagesMock,

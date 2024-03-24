@@ -37,7 +37,7 @@ export default class ChatsMain extends Block<IChatsMainProps, Ref> {
                     ? `
                     {{{ ChatsContentHeader 
                           chatConfig=chatConfig 
-                          updateChatList=updateChatList
+                          onChangeChat=onChangeChat
                           ref="chatsHeader" 
                         }}}
                     {{{ ChatsMessages ref="chatsMessages" messages=messages }}}
