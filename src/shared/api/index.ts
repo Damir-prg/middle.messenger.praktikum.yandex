@@ -1,4 +1,4 @@
-import { IChat, IUser } from 'shared/types/api';
+import { ApiError, IChat, IUser } from 'shared/types/api';
 import UserApi from './user';
 import ChatApi from './chat';
 
@@ -62,12 +62,22 @@ export const api = {
   },
 
   searchUser: async (data: IChat.GETChatUsersRequest): Promise<IUser.InfoResponse[]> => {
-    const response = await chatApi.getChatUsers(data);
+    const response = await chatApi.searchChatUsers(data);
     return errorHandler<IUser.InfoResponse[]>(response);
   },
 
   addUserToChat: async (data: IChat.AddUserToChatRequest): Promise<void> => {
     const response = await chatApi.addUserToChat(data);
+    return errorHandler<void>(response);
+  },
+
+  getChatUsers: async (data: IChat.GetChatUsersRequest): Promise<IChat.GetChatUsersResponse[]> => {
+    const response = await chatApi.getChatUsers(data);
+    return errorHandler<IChat.GetChatUsersResponse[]>(response);
+  },
+
+  deleteChatUsers: async (data: IChat.DeleteChatUsers): Promise<void> => {
+    const response = await chatApi.deleteChatUsers(data);
     return errorHandler<void>(response);
   },
 };

@@ -1,5 +1,4 @@
 import Modal from 'entities/modal';
-import AddUserModal from 'features/addUserModal';
 import { api } from 'shared/api';
 import Block from 'shared/core/Block';
 import { TEvents } from 'shared/core/types';
@@ -11,13 +10,14 @@ export interface TChatsContentHeaderProps {
   events?: Partial<TEvents>;
   onDeleteChatEvents?: Partial<TEvents>;
   onAddUserEvents?: Partial<TEvents>;
+  onDelUserEvents?: Partial<TEvents>;
   closeModal?: () => void;
 }
 
 type Ref = {
   input: HTMLInputElement;
   addUserModal?: Modal;
-  addUserModalContent?: AddUserModal;
+  delUserModal?: Modal;
 };
 
 export default class ChatsContentHeader extends Block<TChatsContentHeaderProps, Ref> {
@@ -61,8 +61,14 @@ export default class ChatsContentHeader extends Block<TChatsContentHeaderProps, 
           this.refs.addUserModal?.open();
         },
       },
+      onDelUserEvents: {
+        click: () => {
+          this.refs.delUserModal?.open();
+        },
+      },
       closeModal: () => {
         this.refs.addUserModal?.close();
+        this.refs.delUserModal?.close();
       },
     });
   }
@@ -84,12 +90,17 @@ export default class ChatsContentHeader extends Block<TChatsContentHeaderProps, 
             </div>
             <div class="chats-content-header__options">
               {{{ ActionButton type="add" events=onAddUserEvents}}}
-              {{{ ActionButton type="del" }}}
+              {{{ ActionButton type="del" events=onDelUserEvents}}}
               {{{ ActionButton type="del" title="Удалить чат" events=onDeleteChatEvents}}}
             </div>
             {{#Modal ref="addUserModal"}}
               {{#BlockContainer classes="modal__content" }}
-                  {{{AddUserModal ref="addUserModalContent" closeModal=closeModal chatId=${chatConfig?.id} }}}
+                  {{{AddUserModal closeModal=closeModal chatId=${chatConfig?.id} }}}
+              {{/BlockContainer}}
+            {{/Modal}}
+            {{#Modal ref="delUserModal"}}
+              {{#BlockContainer classes="modal__content" }}
+                  {{{DelUserModal closeModal=closeModal chatId=${chatConfig?.id} }}}
               {{/BlockContainer}}
             {{/Modal}}
         </article>   

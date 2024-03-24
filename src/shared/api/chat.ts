@@ -19,11 +19,19 @@ export default class ChatApi {
     return transport.delete<void>('/chats', { data });
   }
 
-  async getChatUsers(data: IChat.GETChatUsersRequest): Promise<IUser.InfoResponse[] | ApiError> {
+  async searchChatUsers(data: IChat.GETChatUsersRequest): Promise<IUser.InfoResponse[] | ApiError> {
     return transport.post<IUser.InfoResponse[]>('/user/search', { data });
   }
 
   async addUserToChat(data: IChat.AddUserToChatRequest): Promise<void | ApiError> {
     return transport.put<void>('/chats/users', { data });
+  }
+
+  async getChatUsers(data: IChat.GetChatUsersRequest): Promise<IChat.GetChatUsersResponse[] | ApiError> {
+    return transport.get<IChat.GetChatUsersResponse[]>(`/chats/${data.id}/users`);
+  }
+
+  async deleteChatUsers(data: IChat.DeleteChatUsers): Promise<void | ApiError> {
+    return transport.delete<void>('/chats/users', { data });
   }
 }

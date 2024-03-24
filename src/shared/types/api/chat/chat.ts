@@ -35,3 +35,19 @@ export interface AddUserToChatRequest {
   users: number[];
   chatId: number;
 }
+
+export interface DeleteChatUsers extends AddUserToChatRequest {}
+
+export interface GetChatUsersResponse {
+  id: number;
+  first_name: string;
+  second_name: string;
+  display_name: string;
+  login: string;
+  avatar: string;
+  role: string;
+}
+
+export interface GetChatUsersRequest {
+  id: number;
+}
