@@ -2,7 +2,6 @@ import { api } from 'shared/api';
 import Block from 'shared/core/Block';
 import { TEvents } from 'shared/core/types';
 import { IUser } from 'shared/types/api';
-import { CONSTANTS } from 'shared/utilities';
 
 export interface IProfileImageProps {
   isEdit?: boolean;
@@ -48,9 +47,7 @@ export default class ProfileImage extends Block<IProfileImageProps, Ref> {
         <article class="profile-content-image">
             <div class="profile-content-image__image ${isEdit ? 'profile-content-image__image_pointer' : ''}">
                 <img src="${
-                  user?.avatar
-                    ? `https://ya-praktikum.tech/api/v2/resources${user?.avatar}`
-                    : `${CONSTANTS.mockUserAvatar}`
+                  user?.avatar ? `https://ya-praktikum.tech/api/v2/resources${user?.avatar}` : 'assets/avatar.jpg'
                 }" alt="${user?.first_name} avatar" >
                 <form class="profile-content-image__image_pointer__hover">
                   <label for="avatar" class="profile-content-image__image_pointer__hover__label">Изменить</label>
