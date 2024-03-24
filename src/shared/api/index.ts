@@ -46,4 +46,8 @@ export const api = {
     const response = await chatApi.getChats(data);
     return errorHandler<IChat.GETChatsResponse[]>(response);
   },
+  createChat: async (data?: IChat.CreateChatRequest): Promise<IChat.CreateChatResponse> => {
+    const response = await chatApi.createChat(data);
+    return errorHandler<IChat.CreateChatResponse>(response);
+  },
 };

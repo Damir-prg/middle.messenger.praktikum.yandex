@@ -19,7 +19,6 @@ type Ref = {
 export default class ChatsListItem extends Block<IChatsListItemProps, Ref> {
   constructor(props: IChatsListItemProps) {
     super(props);
-    console.log(props);
   }
 
   protected render(): string {

@@ -23,12 +23,17 @@ export default class ChatsAsideList extends Block<IChatsAsideListProps, Ref> {
       ...props,
     });
 
-    api.getChats().then((data) => {
+    this.updateList();
+  }
+
+  public updateList(data?: IChat.GETChatUsersRequest) {
+    api.getChats(data).then((data) => {
       this.setProps({
         chats: data.map((chat) => ({
           ...chat,
           events: {
-            click: () => props?.onChangeChat?.({ userId: chat.id, isChatOpen: true, messages: CONSTANTS.messagesMock }),
+            click: () =>
+              this.props?.onChangeChat?.({ userId: chat.id, isChatOpen: true, messages: CONSTANTS.messagesMock }),
           },
         })),
       });

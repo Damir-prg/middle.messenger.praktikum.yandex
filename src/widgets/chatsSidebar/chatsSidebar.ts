@@ -5,24 +5,33 @@ import Aside from 'shared/ui/aside';
 import { IChatsMainProps } from 'widgets/chatsMain';
 
 export interface IChatsSidebarProps {
+  updateChatList?: () => void;
   onChangeChat?: (data: IChatsMainProps) => void;
 }
 
 type Ref = {
   sidebarWrapper?: Aside;
-  header?: ChatsAsideHeaderFields;
-  list?: ChatsAsideList;
+  header: ChatsAsideHeaderFields;
+  list: ChatsAsideList;
 };
 
 export default class ChatsSidebar extends Block<IChatsSidebarProps, Ref> {
   constructor(props: IChatsSidebarProps) {
-    super(props);
+    super({
+      ...props,
+      updateChatList: () => this.updateChatList(),
+    });
+  }
+
+  public updateChatList() {
+    console.log('updated');
+    this.refs.list.updateList();
   }
   protected render(): string {
     return `
             {{#Aside type="top"}}
-                {{{ ChatsAsideHeaderFields  }}}
-                {{{ ChatsAsideList onChangeChat=onChangeChat }}}
+                {{{ ChatsAsideHeaderFields updateList=this.updateChatList ref="header" }}}
+                {{{ ChatsAsideList onChangeChat=onChangeChat ref="list" }}}
             {{/Aside}}
         `;
   }
