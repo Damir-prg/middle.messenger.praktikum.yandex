@@ -6,7 +6,7 @@
 
 [Ссылка на макет](https://www.figma.com/file/jF5fFFzgGOxQeB4CmKWTiE/Chat_external_link?type=design&node-id=0-1&mode=design&t=ILMgJ9UsOHfLikKK-0)
 
-[Ссылка на развёрнутое приложение](https://deploy--gregarious-strudel-9f096f.netlify.app/)
+[Ссылка на развёрнутое приложение](https://damir-nasirov.netlify.app/)
 
 Реализованные страницы:
 
