@@ -4,6 +4,12 @@ import { initialRoutes, routes } from './app/withRoutes';
 import { api } from 'shared/api';
 import Router from 'shared/router/Router';
 
+declare global {
+  interface Window {
+    updateChatList: () => void;
+  }
+}
+
 initialComponents();
 
 initialRoutes();

@@ -50,4 +50,9 @@ export const api = {
     const response = await chatApi.createChat(data);
     return errorHandler<IChat.CreateChatResponse>(response);
   },
+
+  changeChatAvatar: async (data: FormData): Promise<IChat.GETChatsResponse> => {
+    const response = await chatApi.changeAvatar(data);
+    return errorHandler<IChat.GETChatsResponse>(response);
+  },
 };

@@ -24,6 +24,7 @@ export default class ChatsAsideList extends Block<IChatsAsideListProps, Ref> {
     });
 
     this.updateList();
+    window.updateChatList = this.updateList.bind(this);
   }
 
   public updateList(data?: IChat.GETChatUsersRequest) {
@@ -32,8 +33,14 @@ export default class ChatsAsideList extends Block<IChatsAsideListProps, Ref> {
         chats: data.map((chat) => ({
           ...chat,
           events: {
-            click: () =>
-              this.props?.onChangeChat?.({ userId: chat.id, isChatOpen: true, messages: CONSTANTS.messagesMock }),
+            click: () => {
+              this.props?.onChangeChat?.({
+                chatConfig: chat,
+                isChatOpen: true,
+                messages: CONSTANTS.messagesMock,
+                updateChatList: this.updateList,
+              });
+            },
           },
         })),
       });

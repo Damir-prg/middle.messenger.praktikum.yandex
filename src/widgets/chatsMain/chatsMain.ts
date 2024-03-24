@@ -4,11 +4,14 @@ import ChatsContentHeader from 'entities/chatsContentHeader';
 import { IChatsContentMessageItemProps } from 'entities/chatsContentMessageItem';
 import ChatsMessages from 'features/chatsMessages';
 import Block from 'shared/core/Block';
+import { IChat } from 'shared/types/api';
 
 export interface IChatsMainProps {
-  userId?: string | number;
+  onChangeChat?: (data: IChatsMainProps) => void;
+  chatConfig?: IChat.GETChatsResponse;
   isChatOpen?: boolean;
   messages?: Array<IChatsContentMessageItemProps>;
+  updateChatList?: () => void;
 }
 
 type Ref = {
@@ -20,8 +23,11 @@ type Ref = {
 
 export default class ChatsMain extends Block<IChatsMainProps, Ref> {
   constructor(props: IChatsMainProps) {
-    super(props);
+    super({ ...props });
   }
+
+  public changeChatState() {}
+
   protected render(): string {
     const { isChatOpen } = this.props;
     return `
@@ -29,7 +35,11 @@ export default class ChatsMain extends Block<IChatsMainProps, Ref> {
                 ${
                   isChatOpen
                     ? `
-                    {{{ ChatsContentHeader userId=userId ref="chatsHeader" }}}
+                    {{{ ChatsContentHeader 
+                          chatConfig=chatConfig 
+                          updateChatList=updateChatList
+                          ref="chatsHeader" 
+                        }}}
                     {{{ ChatsMessages ref="chatsMessages" messages=messages }}}
                     {{{ ChatsContentFooter ref="chatsFooter" }}}
                 `

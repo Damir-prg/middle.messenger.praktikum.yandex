@@ -10,4 +10,8 @@ export default class ChatApi {
   async createChat(data?: IChat.CreateChatRequest): Promise<IChat.CreateChatResponse | ApiError> {
     return transport.post<IChat.CreateChatResponse>('/chats', { data });
   }
+
+  async changeAvatar(data: FormData): Promise<IChat.GETChatsResponse | ApiError> {
+    return transport.put<IChat.GETChatsResponse>('/chats/avatar', { data });
+  }
 }
