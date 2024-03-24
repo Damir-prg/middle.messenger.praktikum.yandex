@@ -1,3 +1,5 @@
+import Modal from 'entities/modal';
+import AddUserModal from 'features/addUserModal';
 import { api } from 'shared/api';
 import Block from 'shared/core/Block';
 import { TEvents } from 'shared/core/types';
@@ -8,10 +10,14 @@ export interface TChatsContentHeaderProps {
   onChangeChat?: () => void;
   events?: Partial<TEvents>;
   onDeleteChatEvents?: Partial<TEvents>;
+  onAddUserEvents?: Partial<TEvents>;
+  closeModal?: () => void;
 }
 
 type Ref = {
   input: HTMLInputElement;
+  addUserModal?: Modal;
+  addUserModalContent?: AddUserModal;
 };
 
 export default class ChatsContentHeader extends Block<TChatsContentHeaderProps, Ref> {
@@ -50,6 +56,14 @@ export default class ChatsContentHeader extends Block<TChatsContentHeaderProps, 
           }
         },
       },
+      onAddUserEvents: {
+        click: () => {
+          this.refs.addUserModal?.open();
+        },
+      },
+      closeModal: () => {
+        this.refs.addUserModal?.close();
+      },
     });
   }
 
@@ -69,10 +83,15 @@ export default class ChatsContentHeader extends Block<TChatsContentHeaderProps, 
                   <input id="avatar" type="file" ref="input" class="chats-content-header__profile__input">
             </div>
             <div class="chats-content-header__options">
-              {{{ ActionButton type="add" }}}
+              {{{ ActionButton type="add" events=onAddUserEvents}}}
               {{{ ActionButton type="del" }}}
               {{{ ActionButton type="del" title="Удалить чат" events=onDeleteChatEvents}}}
             </div>
+            {{#Modal ref="addUserModal"}}
+              {{#BlockContainer classes="modal__content" }}
+                  {{{AddUserModal ref="addUserModalContent" closeModal=closeModal chatId=${chatConfig?.id} }}}
+              {{/BlockContainer}}
+            {{/Modal}}
         </article>   
         `;
   }

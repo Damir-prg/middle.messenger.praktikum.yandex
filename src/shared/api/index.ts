@@ -60,4 +60,14 @@ export const api = {
     const response = await chatApi.deleteChat(data);
     return errorHandler<void>(response);
   },
+
+  searchUser: async (data: IChat.GETChatUsersRequest): Promise<IUser.InfoResponse[]> => {
+    const response = await chatApi.getChatUsers(data);
+    return errorHandler<IUser.InfoResponse[]>(response);
+  },
+
+  addUserToChat: async (data: IChat.AddUserToChatRequest): Promise<void> => {
+    const response = await chatApi.addUserToChat(data);
+    return errorHandler<void>(response);
+  },
 };

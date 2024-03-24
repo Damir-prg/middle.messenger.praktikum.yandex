@@ -9,6 +9,7 @@ import ProfileInfo from './profileInfo';
 import ProfileImage from './profileImage';
 import ProfileEditInfoFields from './profileEditInfoFields';
 import ProfileEditPasswordFields from './profileEditPasswordFields';
+import AddUserModal from './addUserModal';
 
 export function registerFeatures() {
   registerComponent('LoginFields', LoginFields);
@@ -21,4 +22,5 @@ export function registerFeatures() {
   registerComponent('ProfileImage', ProfileImage);
   registerComponent('ProfileEditInfoFields', ProfileEditInfoFields);
   registerComponent('ProfileEditPasswordFields', ProfileEditPasswordFields);
+  registerComponent('AddUserModal', AddUserModal);
 }

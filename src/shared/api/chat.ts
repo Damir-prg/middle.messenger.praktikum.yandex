@@ -1,5 +1,5 @@
 import { HTTPTransport } from './httpTransport';
-import { IChat, ApiError } from 'shared/types/api';
+import { IChat, ApiError, IUser } from 'shared/types/api';
 const transport = new HTTPTransport('');
 
 export default class ChatApi {
@@ -17,5 +17,13 @@ export default class ChatApi {
 
   async deleteChat(data: { chatId: number }): Promise<void | ApiError> {
     return transport.delete<void>('/chats', { data });
+  }
+
+  async getChatUsers(data: IChat.GETChatUsersRequest): Promise<IUser.InfoResponse[] | ApiError> {
+    return transport.post<IUser.InfoResponse[]>('/user/search', { data });
+  }
+
+  async addUserToChat(data: IChat.AddUserToChatRequest): Promise<void | ApiError> {
+    return transport.put<void>('/chats/users', { data });
   }
 }

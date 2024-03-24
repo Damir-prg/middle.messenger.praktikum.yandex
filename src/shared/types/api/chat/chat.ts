@@ -20,6 +20,7 @@ export interface GETChatsResponse {
 
 export interface GETChatUsersRequest {
   title?: string;
+  login?: string;
 }
 
 export interface CreateChatRequest {
@@ -28,4 +29,9 @@ export interface CreateChatRequest {
 
 export interface CreateChatResponse {
   id: number;
+}
+
+export interface AddUserToChatRequest {
+  users: number[];
+  chatId: number;
 }
