@@ -80,4 +80,9 @@ export const api = {
     const response = await chatApi.deleteChatUsers(data);
     return errorHandler<void>(response);
   },
+
+  getToken: async (data: IChat.GetChatTokenRequest): Promise<IChat.GetChatTokenResponse> => {
+    const response = await chatApi.getChatToken(data);
+    return errorHandler<IChat.GetChatTokenResponse>(response);
+  },
 };

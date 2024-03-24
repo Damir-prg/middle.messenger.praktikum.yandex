@@ -51,3 +51,11 @@ export interface GetChatUsersResponse {
 export interface GetChatUsersRequest {
   id: number;
 }
+
+export interface GetChatTokenRequest {
+  chatId: number;
+}
+
+export interface GetChatTokenResponse {
+  token: string;
+}

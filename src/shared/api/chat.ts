@@ -34,4 +34,8 @@ export default class ChatApi {
   async deleteChatUsers(data: IChat.DeleteChatUsers): Promise<void | ApiError> {
     return transport.delete<void>('/chats/users', { data });
   }
+
+  async getChatToken(data: IChat.GetChatTokenRequest): Promise<IChat.GetChatTokenResponse | ApiError> {
+    return transport.post<IChat.GetChatTokenResponse>('/chats/token', { data });
+  }
 }
