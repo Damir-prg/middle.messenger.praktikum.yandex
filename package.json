@@ -5,10 +5,12 @@
   "type": "module",
   "scripts": {
     "format": "prettier --write \"src/**/*.{js,ts,css,scss,md,json,hbs}\" --config ./.prettierrc",
-    "lint": "eslint \"src/**/*.{js,ts,json}\"",
+    "eslint": "eslint \"src/**/*.{js,ts,json}\"",
     "stylelint": "stylelint \"src/**/*.scss\" ",
     "stylelint--fix": "npm run stylelint --fix",
     "stylelint--formatter": "npm run stylelint --formatter",
+    "lint": "npm run eslint && npm run stylelint",
+    "prelint-format": "npm run eslint && npm run stylelint && npm run format",
     "dev": "vite",
     "build": "tsc && vite build",
     "start": "vite build && vite preview",
