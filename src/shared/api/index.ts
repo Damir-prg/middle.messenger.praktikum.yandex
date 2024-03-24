@@ -1,4 +1,4 @@
-import { ApiError, IChat, IUser } from 'shared/types/api';
+import { IChat, IUser } from 'shared/types/api';
 import UserApi from './user';
 import ChatApi from './chat';
 
