@@ -13,23 +13,19 @@ type Ref = {
 
 export default class Messanger extends Block<IMessangerProps, Ref> {
   constructor() {
-    super({
-      onChangeChat: (data: IChatsMainProps) => {
-        this.refs.main.setProps({ ...data });
-      },
-    });
+    super();
+
+    window.onChangeChat = this.onChangeChat.bind(this);
   }
-  // Я понимаю, что ещё не реализовал переписку, вывод чатов, добавления чата,
-  // удаления чата, добавление пользователя в чат и удаление пользователя из чата
-  // просто хотел узнать удовлетворительно ли сделано всё остальное.
-  // К сожалению, из-за работы и из-за собственной лени ничего не успеваю, поэтому
-  // хотел бы узнать это.
-  // А уже сегодня ближе к ночи (23.03.2024 - 24.03.2024) Отправлю на проверку вместе со страницей чаттов.
+
+  private onChangeChat(data: IChatsMainProps) {
+    this.refs.main.setProps({ ...data });
+  }
 
   protected render(): string {
     return `
         {{#RowLayout}}
-          {{{ ChatsSidebar ref="sidebar" onChangeChat=onChangeChat }}}
+          {{{ ChatsSidebar ref="sidebar" }}}
           {{{ ChatsMain ref="main" }}}
         {{/RowLayout}}
         `;

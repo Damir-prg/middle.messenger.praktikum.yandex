@@ -40,9 +40,14 @@ export default class ProfileEditPasswordForm extends Block<IProfileEditPasswordF
         }
       }
       console.log(dataRequest);
-      api.changePassword(dataRequest as unknown as IUser.PasswordRequest).then(() => {
-        this.props?.submitSideEvent?.();
-      });
+      api
+        .changePassword(dataRequest as unknown as IUser.PasswordRequest)
+        .then(() => {
+          this.props?.submitSideEvent?.();
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     } else {
       console.error('validate error');
     }

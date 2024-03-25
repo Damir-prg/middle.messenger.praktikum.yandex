@@ -1,15 +1,10 @@
 import Block from 'shared/core/Block';
 import { TEvents } from 'shared/core/types';
+import { IChat } from 'shared/types/api';
+import { convertIsoToHHMM } from 'shared/utilities';
 
-export interface IChatsListItemProps {
+export interface IChatsListItemProps extends Partial<IChat.GETChatsResponse> {
   events?: Partial<TEvents>;
-  imageUrl?: string;
-  name?: string;
-  lastMessage?: string;
-  time?: string;
-  count?: number;
-  isActive?: boolean;
-  userId?: string | number;
 }
 
 type Ref = {
@@ -27,18 +22,32 @@ export default class ChatsListItem extends Block<IChatsListItemProps, Ref> {
   }
 
   protected render(): string {
-    const { imageUrl, name, lastMessage, time, count, userId, isActive } = this.props;
+    const { avatar, id, last_message, title, unread_count } = this.props;
 
     return `
-      <li class="chats-aside__list-item ${isActive ? 'chats-aside__list-item_active' : ''}" ref="item">
-        <img src="${imageUrl}" alt="${name} ${userId} avatar" class="chats-aside__list-item__image" ref="image"/>
+      <li class="chats-aside__list-item" ref="item">
+        <img src="${
+          avatar ? `https://ya-praktikum.tech/api/v2/resources${avatar}` : 'assets/avatar.jpg'
+        }" alt="${title} ${id} avatar" class="chats-aside__list-item__image" ref="image"/>
         <div class="chats-aside__list-item__info">
-            <h4 class="chats-aside__list-item__name" ref="name">${name} ${userId}</h4>
-            <p class="chats-aside__list-item__last-message" ref="lastMessage">${lastMessage}</p>
+            <h4 class="chats-aside__list-item__name" ref="name">${title}</h4>
+            ${
+              last_message
+                ? `<p class="chats-aside__list-item__last-message" ref="lastMessage">${last_message}</p>`
+                : ''
+            }
         </div>
         <div class="chats-aside__list-item__description">
-            <span class="chats-aside__list-item__time" ref="time">${time}</span>
-            ${count ? `<div class="chats-aside__list-item__messages-count" ref="count">${count}</div>` : ''}
+            ${
+              last_message
+                ? `<span class="chats-aside__list-item__time" ref="time">${convertIsoToHHMM(last_message?.time)}</span>`
+                : ''
+            }
+            ${
+              unread_count
+                ? `<div class="chats-aside__list-item__messages-count" ref="count">${unread_count}</div>`
+                : ''
+            }
         </div>
       </li>
       `;
