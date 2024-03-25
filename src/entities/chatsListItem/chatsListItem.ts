@@ -33,7 +33,7 @@ export default class ChatsListItem extends Block<IChatsListItemProps, Ref> {
             <h4 class="chats-aside__list-item__name" ref="name">${title}</h4>
             ${
               last_message
-                ? `<p class="chats-aside__list-item__last-message" ref="lastMessage">${last_message}</p>`
+                ? `<p class="chats-aside__list-item__last-message" ref="lastMessage">${last_message.content}</p>`
                 : ''
             }
         </div>
