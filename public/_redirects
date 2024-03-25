@@ -1,8 +1,1 @@
-/* /not-found 200
-!/  /   200
-!/sign-up   /sign-up    200
-!/messenger     /messenger  200
-!/not-found     /not-found  200
-!/server-error      /server-error   200
-!/profile       /profile    200
-!/welcome       /welcome    200
+/* /index.html 200
