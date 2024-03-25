@@ -1,7 +1,8 @@
+import { routes } from 'app/withRoutes';
 import Block from 'shared/core/Block';
+import Router from 'shared/router/Router';
 import ArrowButton from 'shared/ui/arrowButton';
 import Aside from 'shared/ui/aside';
-import { navigate } from 'shared/utilities/navigate';
 
 export interface IProfileSidebarProps {
   handleClick: () => void;
@@ -17,7 +18,7 @@ export default class ProfileSidebar extends Block<IProfileSidebarProps, Ref> {
     super({
       ...props,
       handleClick: () => {
-        navigate('chats');
+        Router.go(routes.messenger.route);
       },
     });
   }

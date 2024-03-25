@@ -14,10 +14,8 @@ function checkTypeOfObject(value: object): boolean {
     const myMap = value as Map<unknown, unknown>;
 
     if (myMap.size > 0) {
-      console.log(false);
       return false;
     }
-    console.log(true);
     return true;
   }
 
@@ -25,10 +23,8 @@ function checkTypeOfObject(value: object): boolean {
     const mySet = value as Set<unknown>;
 
     if (mySet.size > 0) {
-      console.log(false);
       return false;
     }
-    console.log(true);
     return true;
   }
 

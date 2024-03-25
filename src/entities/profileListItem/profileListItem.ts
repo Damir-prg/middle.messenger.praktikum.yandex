@@ -15,10 +15,10 @@ export default class ProfileListItem extends Block<IProfileListItemProps> {
     return `
       <li class="profile-content-list__item">
         ${
-          title && value
+          title || value
             ? `
                 <span class="profile-content-list__item__title">${title}</span>
-                <span class="profile-content-list__item__value">${value}</span>`
+                <span class="profile-content-list__item__value">${value ?? ''}</span>`
             : ''
         }
       </li>

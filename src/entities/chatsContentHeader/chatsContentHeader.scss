@@ -11,9 +11,22 @@
 
     gap: 10px;
 
-    &__image {
+    &__label {
+      position: relative;
       width: 34px;
       height: 34px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    &__input {
+      display: none;
+    }
+
+    &__image {
+      width: 100%;
+      height: 100%;
       border-radius: 50%;
       object-fit: cover;
     }
@@ -24,25 +37,6 @@
   }
 
   &__options {
-    @extend .flex-col-center;
-
-    width: 25px;
-    height: 25px;
-    background: transparent;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    fill: $dark;
-    transition: all 0.25s;
-
-    &:hover {
-      fill: $primary;
-      background-color: $lightblue;
-    }
-
-    &:focus,
-    &:focus-visible {
-      outline: none;
-    }
+    @extend .flex-row-between;
   }
 }

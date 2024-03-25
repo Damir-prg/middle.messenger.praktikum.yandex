@@ -12,8 +12,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'index.html'),
-      name: 'sprint_1',
-      fileName: (format) => `sprint1.${format}.js`,
+      name: 'sprint_3',
+      fileName: (format) => `sprint3.${format}.js`,
     },
     outDir: 'dist',
   },

@@ -1,9 +1,10 @@
 import Block from 'shared/core/Block';
 import { TEvents } from 'shared/core/types';
+import { IUser } from 'shared/types/api';
 import Input from 'shared/ui/input';
 import { REGEX } from 'shared/utilities';
 
-export interface IProfileEditInfoFieldsProps {
+export interface IProfileEditInfoFieldsProps extends Partial<IUser.InfoResponse> {
   emailEvents?: Partial<TEvents>;
   loginEvents?: Partial<TEvents>;
   firstNameEvents?: Partial<TEvents>;
@@ -22,8 +23,9 @@ type Ref = {
 };
 
 export default class ProfileEditInfoFields extends Block<IProfileEditInfoFieldsProps, Ref> {
-  constructor() {
+  constructor(props: IProfileEditInfoFieldsProps) {
     super({
+      ...props,
       emailEvents: {
         focusout: () => this.validateField('email', 'checkEmail'),
       },
@@ -75,7 +77,7 @@ export default class ProfileEditInfoFields extends Block<IProfileEditInfoFieldsP
                     type="text"
                     ref="email"
                     classes="input__profile"
-                    defaultValue="example@yandex.ru"
+                    defaultValue=email
                     events=emailEvents
                 }}}
             {{/ProfileListItem}}
@@ -87,7 +89,7 @@ export default class ProfileEditInfoFields extends Block<IProfileEditInfoFieldsP
                     type="text"
                     ref="login"
                     classes="input__profile"
-                    defaultValue="ivanivanov"
+                    defaultValue=login
                     events=loginEvents
                 }}}
             {{/ProfileListItem}}
@@ -99,7 +101,7 @@ export default class ProfileEditInfoFields extends Block<IProfileEditInfoFieldsP
                     type="text"
                     ref="firstName"
                     classes="input__profile"
-                    defaultValue="Иван"
+                    defaultValue=first_name
                     events=firstNameEvents
                 }}}
             {{/ProfileListItem}}
@@ -111,7 +113,7 @@ export default class ProfileEditInfoFields extends Block<IProfileEditInfoFieldsP
                     type="text"
                     ref="secondName"
                     classes="input__profile"
-                    defaultValue="Иванов"
+                    defaultValue=second_name
                     events=secondNameEvents
                 }}}
             {{/ProfileListItem}}
@@ -122,19 +124,19 @@ export default class ProfileEditInfoFields extends Block<IProfileEditInfoFieldsP
                     name="display_name"
                     type="text"
                     ref="displayName"
-                    defaultValue="Иван"
+                    defaultValue=display_name
                     classes="input__profile"
                     events=displayNameEvents
                 }}}
             {{/ProfileListItem}}
             {{#ProfileListItem}}
-                <span class="profile-content-list__item__title">Имя в чате</span>
+                <span class="profile-content-list__item__title">Телефон</span>
                 {{{ Input
                     placeholder="Телефон"
                     name="phone"
                     type="text"
                     ref="phone"
-                    defaultValue="+7 (909) 967 30 30"
+                    defaultValue=phone
                     classes="input__profile"
                     events=phoneEvents
             }}}

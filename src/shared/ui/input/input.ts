@@ -28,7 +28,7 @@ export default class Input extends Block<IInputProps, Ref> {
 
   public validate(callback: (value: string) => TRegexResult): boolean {
     if (!this.value()) {
-      this.setError('');
+      this.setError('Пустое поле');
       return false;
     }
     const result = callback(this.value());

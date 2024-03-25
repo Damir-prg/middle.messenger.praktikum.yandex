@@ -1,6 +1,6 @@
 import { registerComponent } from 'shared/core/registerComponents';
-import AuthLoginFields from './authLoginFields';
-import AuthRegisterFields from './authRegisterFields';
+import LoginFields from './loginFields';
+import SignUpFields from './signUpFields';
 import AuthSubmit from './authSubmit';
 import ChatsAsideHeaderFields from './chatsAsideHeaderFields';
 import ChatsAsideList from './chatsAsideList';
@@ -9,10 +9,12 @@ import ProfileInfo from './profileInfo';
 import ProfileImage from './profileImage';
 import ProfileEditInfoFields from './profileEditInfoFields';
 import ProfileEditPasswordFields from './profileEditPasswordFields';
+import AddUserModal from './addUserModal';
+import DelUserModal from './delUserModal';
 
 export function registerFeatures() {
-  registerComponent('AuthLoginFields', AuthLoginFields);
-  registerComponent('AuthRegisterFields', AuthRegisterFields);
+  registerComponent('LoginFields', LoginFields);
+  registerComponent('SignUpFields', SignUpFields);
   registerComponent('AuthSubmit', AuthSubmit);
   registerComponent('ChatsAsideHeaderFields', ChatsAsideHeaderFields);
   registerComponent('ChatsAsideList', ChatsAsideList);
@@ -21,4 +23,6 @@ export function registerFeatures() {
   registerComponent('ProfileImage', ProfileImage);
   registerComponent('ProfileEditInfoFields', ProfileEditInfoFields);
   registerComponent('ProfileEditPasswordFields', ProfileEditPasswordFields);
+  registerComponent('AddUserModal', AddUserModal);
+  registerComponent('DelUserModal', DelUserModal);
 }

@@ -1,0 +1,24 @@
+.action-button {
+  @extend .flex-row-center-left;
+
+  background: transparent;
+  color: $primary;
+  gap: 5px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 5px 10px;
+
+  &:hover {
+    border: 1px solid $primary;
+    border-radius: 8px;
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+
+  &__text {
+    white-space: nowrap;
+  }
+}

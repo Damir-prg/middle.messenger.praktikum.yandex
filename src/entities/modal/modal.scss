@@ -1,0 +1,25 @@
+.modal {
+  @extend .flex-col-center;
+
+  display: none;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($color: $dark, $alpha: 50%);
+
+  &_active {
+    display: flex;
+    visibility: visible;
+  }
+
+  &__content {
+    z-index: 9000;
+    width: 90%;
+    min-width: 200px;
+    max-width: 340px;
+    background-color: $white;
+  }
+}

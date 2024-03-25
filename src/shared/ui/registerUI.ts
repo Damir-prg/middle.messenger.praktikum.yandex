@@ -8,6 +8,7 @@ import BlockContainer from './blockContainer';
 import RowLayout from './rowLayout';
 import Aside from './aside';
 import Search from './search';
+import ActionButton from './actionButton';
 
 export function registerUIs() {
   registerComponent('Input', Input);
@@ -19,4 +20,5 @@ export function registerUIs() {
   registerComponent('RowLayout', RowLayout);
   registerComponent('Aside', Aside);
   registerComponent('Search', Search);
+  registerComponent('ActionButton', ActionButton);
 }

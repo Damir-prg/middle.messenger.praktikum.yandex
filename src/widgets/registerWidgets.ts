@@ -1,6 +1,6 @@
 import { registerComponent } from 'shared/core/registerComponents';
-import AuthLoginForm from './authLoginForm';
-import AuthRegisterForm from './authRegisterForm';
+import LoginForm from './loginForm';
+import SignUpForm from './signUpForm';
 import ChatsSidebar from './chatsSidebar';
 import ChatsMain from './chatsMain';
 import ProfileSidebar from './profileSidebar';
@@ -9,8 +9,8 @@ import ProfileEditInfoForm from './profileEditInfoForm';
 import ProfileEditPasswordForm from './profileEditPasswordForm';
 
 export function registerWidgets() {
-  registerComponent('AuthLoginForm', AuthLoginForm);
-  registerComponent('AuthRegisterForm', AuthRegisterForm);
+  registerComponent('LoginForm', LoginForm);
+  registerComponent('SignUpForm', SignUpForm);
   registerComponent('ChatsSidebar', ChatsSidebar);
   registerComponent('ChatsMain', ChatsMain);
   registerComponent('ProfileSidebar', ProfileSidebar);

@@ -1,7 +1,11 @@
+import { routes } from 'app/withRoutes';
 import ProfileEditForm from 'entities/profileEditForm';
 import ProfileEditInfoFields from 'features/profileEditInfoFields';
+import { api } from 'shared/api';
 import Block from 'shared/core/Block';
 import { TEvents } from 'shared/core/types';
+import Router from 'shared/router/Router';
+import { IUser } from 'shared/types/api';
 import Button from 'shared/ui/button';
 
 export interface IProfileEditInfoFormProps {
@@ -23,6 +27,18 @@ export default class ProfileEditInfoForm extends Block<IProfileEditInfoFormProps
         submit: (e) => this.handlerSubmit(e),
       },
     });
+
+    api
+      .userInfo()
+      .then((data) => {
+        this.refs?.profileEditFields?.setProps({
+          ...data,
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+        Router.go(routes.login.route);
+      });
   }
 
   public handlerSubmit(e: Event) {
@@ -30,11 +46,22 @@ export default class ProfileEditInfoForm extends Block<IProfileEditInfoFormProps
     e.stopPropagation();
     const validateResult = this.refs?.profileEditFields?.validateAll();
     const data = this.refs?.profileEditForm?.getFormData();
+    const dataRequest: Record<string, string> = {};
     if (validateResult && data) {
       for (const [name, value] of data) {
-        console.log(name, ':', value);
+        if (typeof value === 'string') {
+          dataRequest[name] = value;
+        }
       }
-      this.props?.submitSideEvent?.();
+      console.log(dataRequest);
+      api
+        .changeInfo(dataRequest as unknown as IUser.InfoResponse)
+        .then(() => {
+          this.props?.submitSideEvent?.();
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     } else {
       console.error('validate error');
     }

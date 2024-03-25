@@ -2,6 +2,7 @@
   &__message {
     width: 100%;
     list-style: none;
+    z-index: -1;
 
     &_date {
       @extend .text-13;
