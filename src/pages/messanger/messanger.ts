@@ -25,7 +25,7 @@ export default class Messanger extends Block<IMessangerProps, Ref> {
   protected render(): string {
     return `
         {{#RowLayout}}
-          {{{ ChatsSidebar ref="sidebar" onChangeChat=onChangeChat }}}
+          {{{ ChatsSidebar ref="sidebar" }}}
           {{{ ChatsMain ref="main" }}}
         {{/RowLayout}}
         `;

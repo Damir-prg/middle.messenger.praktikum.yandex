@@ -2,11 +2,9 @@ import ChatsAsideHeaderFields from 'features/chatsAsideHeaderFields';
 import ChatsAsideList from 'features/chatsAsideList';
 import Block from 'shared/core/Block';
 import Aside from 'shared/ui/aside';
-import { IChatsMainProps } from 'widgets/chatsMain';
 
 export interface IChatsSidebarProps {
   updateChatList?: () => void;
-  onChangeChat?: (data: IChatsMainProps) => void;
 }
 
 type Ref = {
@@ -30,7 +28,7 @@ export default class ChatsSidebar extends Block<IChatsSidebarProps, Ref> {
     return `
             {{#Aside type="top"}}
                 {{{ ChatsAsideHeaderFields updateList=this.updateChatList ref="header" }}}
-                {{{ ChatsAsideList onChangeChat=onChangeChat ref="list" }}}
+                {{{ ChatsAsideList ref="list" }}}
             {{/Aside}}
         `;
   }

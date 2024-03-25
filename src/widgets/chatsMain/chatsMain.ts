@@ -7,7 +7,6 @@ import Block from 'shared/core/Block';
 import { IChat } from 'shared/types/api';
 
 export interface IChatsMainProps {
-  onChangeChat?: (data: IChatsMainProps) => void;
   chatConfig?: IChat.GETChatsResponse;
   isChatOpen?: boolean;
   messages?: Array<IChatsContentMessageItemProps>;
@@ -37,10 +36,12 @@ export default class ChatsMain extends Block<IChatsMainProps, Ref> {
                     ? `
                     {{{ ChatsContentHeader 
                           chatConfig=chatConfig 
-                          onChangeChat=onChangeChat
                           ref="chatsHeader" 
                         }}}
-                    {{{ ChatsMessages ref="chatsMessages" messages=messages }}}
+                    {{{ ChatsMessages 
+                      ref="chatsMessages" 
+                      messages=messages 
+                      chatConfig=chatConfig }}}
                     {{{ ChatsContentFooter ref="chatsFooter" }}}
                 `
                     : ''

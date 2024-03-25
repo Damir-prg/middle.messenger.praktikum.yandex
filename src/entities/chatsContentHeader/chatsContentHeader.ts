@@ -6,7 +6,6 @@ import { IChat } from 'shared/types/api';
 
 export interface TChatsContentHeaderProps {
   chatConfig?: IChat.GETChatsResponse;
-  onChangeChat?: () => void;
   events?: Partial<TEvents>;
   onDeleteChatEvents?: Partial<TEvents>;
   onAddUserEvents?: Partial<TEvents>;

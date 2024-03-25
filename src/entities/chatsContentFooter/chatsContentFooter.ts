@@ -1,3 +1,4 @@
+import WebSocketTransport from 'shared/api/ws';
 import Block from 'shared/core/Block';
 import { TEvents } from 'shared/core/types';
 import ArrowButton from 'shared/ui/arrowButton';
@@ -14,13 +15,27 @@ type Ref = {
 
 export default class ChatsContentFooter extends Block<TChatsContentFooterProps, Ref> {
   constructor(props: TChatsContentFooterProps) {
-    super(props);
+    super({
+      ...props,
+      events: {
+        submit: (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const input = this.refs.input as HTMLInputElement;
+          if (input.value.length > 0) {
+            WebSocketTransport.sendMessage(input.value);
+            input.value = '';
+          }
+        },
+      },
+    });
   }
 
   protected render(): string {
     return `
       <footer class="chats-content-footer">
-          <button class="chats-content-footer__attachment">
+          <button class="chats-content-footer__attachment" type="button">
             <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M6.18662 12.5L13.7628 4.92389L14.7056 
                 5.8667L7.12943 13.4428L6.18662 12.5Z"></path>
@@ -42,8 +57,10 @@ export default class ChatsContentFooter extends Block<TChatsContentFooterProps, 
                 9.64373 15.9572L8.70092 15.0144Z"></path>
             </svg>
           </button>
-          <input type="text" class="chats-content-footer__input" placeholder="Сообщение">
-          {{{ ArrowButton orientation="right" }}}
+          <form class="chats-content-footer__form">
+            <input type="text" ref="input" class="chats-content-footer__input" placeholder="Сообщение">
+            {{{ ArrowButton orientation="right" type="submit" ref="send" }}}
+          </form>
       </footer>
       `;
   }

@@ -3,14 +3,11 @@ import ChatsListItem from 'entities/chatsListItem';
 import Block from 'shared/core/Block';
 import { IChat } from 'shared/types/api';
 import { TEvents } from 'shared/core/types';
-import { CONSTANTS } from 'shared/utilities';
-import { IChatsMainProps } from 'widgets/chatsMain';
 import { api } from 'shared/api';
 
 export interface IChatsAsideListProps {
   chats?: Array<IChat.GETChatsResponse & Partial<TEvents>>;
   events?: Partial<TEvents>;
-  onChangeChat?: (data: IChatsMainProps) => void;
 }
 
 type Ref = {
@@ -37,7 +34,6 @@ export default class ChatsAsideList extends Block<IChatsAsideListProps, Ref> {
               window.onChangeChat({
                 chatConfig: chat,
                 isChatOpen: true,
-                messages: CONSTANTS.messagesMock,
                 updateChatList: this.updateList,
               });
             },

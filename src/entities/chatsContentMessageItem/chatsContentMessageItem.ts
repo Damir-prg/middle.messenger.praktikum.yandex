@@ -1,12 +1,9 @@
 import Block from 'shared/core/Block';
+import { IChat } from 'shared/types/api';
+import { convertIsoToHHMM } from 'shared/utilities';
 
-export interface IChatsContentMessageItemProps {
-  messageType?: 'incoming' | 'outgoing' | 'date';
-  type?: 'image' | 'text';
-  imageUrl?: string;
-  time?: string;
-  message?: string;
-  date?: string;
+export interface IChatsContentMessageItemProps extends Partial<IChat.WSMessage> {
+  userId?: number;
 }
 
 export default class ChatsContentMessageItem extends Block<IChatsContentMessageItemProps> {
@@ -15,30 +12,32 @@ export default class ChatsContentMessageItem extends Block<IChatsContentMessageI
   }
 
   protected render(): string {
-    const { messageType, type, imageUrl, time, message, date } = this.props;
-
-    if (date && messageType === 'date') {
-      return `
-        <li class="chats-content-messages__message chats-content-messages__message_${messageType}">
-            ${date}
-        </li>
-      `;
-    }
+    const { time, content, user_id, userId, type, file } = this.props;
 
     return `
-      <li class="chats-content-messages__message chats-content-messages__message_${messageType}">
+      <li class="chats-content-messages__message chats-content-messages__message_${
+        userId === user_id ? 'outgoing' : 'incoming'
+      }">
         ${
           type === 'image'
             ? `
-            <div class="chats-content-messages__image chats-content-messages__image_${messageType}">
-                <img src="${imageUrl}" alt="image ${messageType} at ${time}" />
+            <div class="chats-content-messages__image chats-content-messages__image_${
+              userId === user_id ? 'outgoing' : 'incoming'
+            }">
+                <img src="${file}" alt="image ${userId === user_id ? 'outgoing' : 'incoming'} at ${convertIsoToHHMM(
+                  time,
+                )}" />
                 <span class="chats-content-messages__image-time">${time}</span>
             </div>
             `
             : `
-            <div class="chats-content-messages__text chats-content-messages__text_${messageType}">
-                <p class="chats-content-messages__text-message">${message}</p>
-                <span class="chats-content-messages__text_${messageType}-time">${time}</span>
+            <div class="chats-content-messages__text chats-content-messages__text_${
+              userId === user_id ? 'outgoing' : 'incoming'
+            }">
+                <p class="chats-content-messages__text-message">${content}</p>
+                <span class="chats-content-messages__text_${
+                  userId === user_id ? 'outgoing' : 'incoming'
+                }-time">${convertIsoToHHMM(time)}</span>
             </div>    
             `
         }

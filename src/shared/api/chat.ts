@@ -36,6 +36,6 @@ export default class ChatApi {
   }
 
   async getChatToken(data: IChat.GetChatTokenRequest): Promise<IChat.GetChatTokenResponse | ApiError> {
-    return transport.post<IChat.GetChatTokenResponse>('/chats/token', { data });
+    return transport.post<IChat.GetChatTokenResponse>(`/chats/token/${data.chatId}`, { data });
   }
 }

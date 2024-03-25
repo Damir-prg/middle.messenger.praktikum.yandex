@@ -4,11 +4,14 @@ import { initialRoutes, routes } from './app/withRoutes';
 import { api } from 'shared/api';
 import Router from 'shared/router/Router';
 import { IChatsMainProps } from 'widgets/chatsMain';
+import WebSocketTransport from 'shared/api/ws';
 
 declare global {
   interface Window {
     updateChatList: () => void;
     onChangeChat: (data: IChatsMainProps) => void;
+    messages?: any[];
+    WebSocketTransport: WebSocketTransport;
   }
 }
 
@@ -17,6 +20,8 @@ initialComponents();
 initialRoutes();
 
 document.addEventListener('DOMContentLoaded', async () => {
+  window.WebSocketTransport = WebSocketTransport.getInstance();
+
   try {
     await api.userInfo();
   } catch (error) {

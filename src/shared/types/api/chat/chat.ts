@@ -59,3 +59,14 @@ export interface GetChatTokenRequest {
 export interface GetChatTokenResponse {
   token: string;
 }
+
+export interface WSMessage {
+  chat_id: number;
+  content: string;
+  file: string | null;
+  id: number;
+  is_read: boolean;
+  time: string;
+  type: string;
+  user_id: number;
+}
