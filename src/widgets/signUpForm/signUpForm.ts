@@ -44,9 +44,14 @@ export default class SignUpForm extends Block<ISignUpFormProps, Ref> {
         }
       }
       console.log(dataRequest);
-      api.signUp(dataRequest as unknown as IUser.SignUpRequest).then(() => {
-        Router.go(routes.messenger.route);
-      });
+      api
+        .signUp(dataRequest as unknown as IUser.SignUpRequest)
+        .then(() => {
+          Router.go(routes.messenger.route);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     } else {
       console.error('validate error');
     }

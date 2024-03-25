@@ -27,15 +27,25 @@ export default class AddUserModal extends Block<IAddUserModalProps, Ref> {
           e.stopPropagation();
           const value = this.refs.titleInput?.value();
 
-          api.searchUser({ login: value }).then((data) => {
-            if (!data.length || !props.chatId) {
-              this.refs.titleInput?.setError('Пользователь не найден');
-            } else {
-              api.addUserToChat({ chatId: props.chatId, users: [data[0].id] }).then(() => {
-                props.closeModal?.();
-              });
-            }
-          });
+          api
+            .searchUser({ login: value })
+            .then((data) => {
+              if (!data.length || !props.chatId) {
+                this.refs.titleInput?.setError('Пользователь не найден');
+              } else {
+                api
+                  .addUserToChat({ chatId: props.chatId, users: [data[0].id] })
+                  .then(() => {
+                    props.closeModal?.();
+                  })
+                  .catch((err) => {
+                    console.error(err);
+                  });
+              }
+            })
+            .catch((err) => {
+              console.error(err);
+            });
         },
       },
     });

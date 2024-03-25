@@ -40,6 +40,9 @@ export default class ChatsContentHeader extends Block<TChatsContentHeaderProps, 
               })
               .then(() => {
                 window.updateChatList();
+              })
+              .catch((err) => {
+                console.error(err);
               });
           }
         },
@@ -48,10 +51,15 @@ export default class ChatsContentHeader extends Block<TChatsContentHeaderProps, 
         click: () => {
           const chatId = this.props.chatConfig?.id;
           if (chatId) {
-            api.deleteChat({ chatId }).then(() => {
-              window.updateChatList();
-              window.onChangeChat({ isChatOpen: false });
-            });
+            api
+              .deleteChat({ chatId })
+              .then(() => {
+                window.updateChatList();
+                window.onChangeChat({ isChatOpen: false });
+              })
+              .catch((err) => {
+                console.error(err);
+              });
           }
         },
       },

@@ -54,9 +54,14 @@ export default class ProfileEditInfoForm extends Block<IProfileEditInfoFormProps
         }
       }
       console.log(dataRequest);
-      api.changeInfo(dataRequest as unknown as IUser.InfoResponse).then(() => {
-        this.props?.submitSideEvent?.();
-      });
+      api
+        .changeInfo(dataRequest as unknown as IUser.InfoResponse)
+        .then(() => {
+          this.props?.submitSideEvent?.();
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     } else {
       console.error('validate error');
     }

@@ -25,22 +25,27 @@ export default class ChatsAsideList extends Block<IChatsAsideListProps, Ref> {
   }
 
   public updateList(data?: IChat.GETChatUsersRequest) {
-    api.getChats(data).then((data) => {
-      this.setProps({
-        chats: data.map((chat) => ({
-          ...chat,
-          events: {
-            click: () => {
-              window.onChangeChat({
-                chatConfig: chat,
-                isChatOpen: true,
-                updateChatList: this.updateList,
-              });
+    api
+      .getChats(data)
+      .then((data) => {
+        this.setProps({
+          chats: data.map((chat) => ({
+            ...chat,
+            events: {
+              click: () => {
+                window.onChangeChat({
+                  chatConfig: chat,
+                  isChatOpen: true,
+                  updateChatList: this.updateList,
+                });
+              },
             },
-          },
-        })),
+          })),
+        });
+      })
+      .catch((err) => {
+        console.error(err);
       });
-    });
   }
 
   protected render(): string {

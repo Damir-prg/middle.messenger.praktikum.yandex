@@ -44,9 +44,14 @@ export default class LoginForm extends Block<ILoginFormProps, Ref> {
       }
     }
     console.log(dataRequest);
-    api.signIn(dataRequest as unknown as IUser.SignInRequest).then(() => {
-      Router.go(routes.messenger.route);
-    });
+    api
+      .signIn(dataRequest as unknown as IUser.SignInRequest)
+      .then(() => {
+        Router.go(routes.messenger.route);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 
   protected render(): string {

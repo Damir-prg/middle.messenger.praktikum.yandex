@@ -21,10 +21,17 @@ export default class ChatsMessages extends Block<IChatsMessagesProps, Ref> {
 
     const chatId = props.chatConfig?.id;
     if (chatId) {
-      api.getToken({ chatId: chatId }).then(async (data) => {
-        const userInfo = await api.userInfo();
-        WebSocketTransport.createConnection(userInfo.id, chatId, data.token, (messages) => this.setProps({ messages }));
-      });
+      api
+        .getToken({ chatId: chatId })
+        .then(async (data) => {
+          const userInfo = await api.userInfo();
+          WebSocketTransport.createConnection(userInfo.id, chatId, data.token, (messages) =>
+            this.setProps({ messages }),
+          );
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     }
   }
 

@@ -34,24 +34,34 @@ export default class DelUserModal extends Block<IDelUserModalProps, Ref> {
   private loadUsers() {
     const chatId = this.props.chatId;
     if (chatId) {
-      api.getChatUsers({ id: chatId }).then((data) => {
-        this.setProps({
-          users: data
-            .map((user) => ({
-              ...user,
-              events: {
-                click: () => {
-                  api.deleteChatUsers({ users: [user.id], chatId }).then(() => {
-                    this.setProps({
-                      users: this.props.users?.filter((u) => u.id !== user.id),
-                    });
-                  });
+      api
+        .getChatUsers({ id: chatId })
+        .then((data) => {
+          this.setProps({
+            users: data
+              .map((user) => ({
+                ...user,
+                events: {
+                  click: () => {
+                    api
+                      .deleteChatUsers({ users: [user.id], chatId })
+                      .then(() => {
+                        this.setProps({
+                          users: this.props.users?.filter((u) => u.id !== user.id),
+                        });
+                      })
+                      .catch((err) => {
+                        console.error(err);
+                      });
+                  },
                 },
-              },
-            }))
-            .filter((u) => u.role !== 'admin'),
+              }))
+              .filter((u) => u.role !== 'admin'),
+          });
+        })
+        .catch((err) => {
+          console.error(err);
         });
-      });
     }
   }
 

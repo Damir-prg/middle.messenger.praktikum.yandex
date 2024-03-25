@@ -23,21 +23,31 @@ export default class ProfileImage extends Block<IProfileImageProps, Ref> {
           if (input?.files?.[0]) {
             const formData = new FormData();
             formData.append('avatar', input.files[0]);
-            api.changeAvatar(formData).then((data) => {
-              this.setProps({
-                user: data,
+            api
+              .changeAvatar(formData)
+              .then((data) => {
+                this.setProps({
+                  user: data,
+                });
+              })
+              .catch((err) => {
+                console.error(err);
               });
-            });
           }
         },
       },
     });
 
-    api.userInfo().then((data) => {
-      this.setProps({
-        user: data,
+    api
+      .userInfo()
+      .then((data) => {
+        this.setProps({
+          user: data,
+        });
+      })
+      .catch((err) => {
+        console.error(err);
       });
-    });
   }
 
   protected render(): string {
