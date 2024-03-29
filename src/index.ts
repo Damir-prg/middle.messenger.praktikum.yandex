@@ -9,6 +9,7 @@ import WebSocketTransport from 'shared/api/ws';
 declare global {
   interface Window {
     updateChatList: () => void;
+
     onChangeChat: (data: IChatsMainProps) => void;
     messages?: any[];
     WebSocketTransport: WebSocketTransport;
