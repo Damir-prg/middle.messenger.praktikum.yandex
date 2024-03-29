@@ -8,10 +8,16 @@
     "lint:js": "eslint \"src/**/*.{js,ts,json}\"",
     "lint:style": "stylelint \"src/**/*.scss\" ",
     "lint": "npm run lint:js && npm run lint:style",
+    "commit": "npm run format && npm run lint",
     "dev": "vite",
     "build": "tsc && vite build",
     "start": "vite build && vite preview",
     "preview": "vite preview"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run commit"
+    }
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.17.0",
@@ -20,6 +26,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.2",
     "handlebars": "^4.7.8",
+    "husky": "^9.0.11",
     "prettier": "^3.1.1",
     "sass": "^1.69.5",
     "stylelint": "^16.1.0",
