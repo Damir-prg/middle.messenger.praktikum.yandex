@@ -12,7 +12,7 @@
     "commit": "npm run format && npm run lint",
     "test": "mocha '",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc --noEmit && vite build",
     "start": "vite build && vite preview",
     "preview": "vite preview"
   },
