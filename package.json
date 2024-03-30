@@ -10,7 +10,7 @@
     "lint": "npm run lint:js && npm run lint:style",
     "husky:install": "husky install",
     "commit": "npm run format && npm run lint",
-    "test": "mocha '",
+    "test": "mocha",
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "start": "vite build && vite preview",
