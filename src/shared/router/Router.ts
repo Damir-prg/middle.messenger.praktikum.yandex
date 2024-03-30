@@ -71,5 +71,5 @@ class Router {
     return this.routes.find((route) => route.match(pathname));
   }
 }
-
+export { Router };
 export default new Router('#app');
