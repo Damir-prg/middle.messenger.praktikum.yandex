@@ -8,7 +8,7 @@
     "lint:js": "eslint \"src/**/*.{js,ts,json}\"",
     "lint:style": "stylelint \"src/**/*.scss\" ",
     "lint": "npm run lint:js && npm run lint:style",
-    "husky:install": "husky install",
+    "prepare": "husky install",
     "commit": "npm run format && npm run lint",
     "test": "mocha",
     "dev": "vite",
