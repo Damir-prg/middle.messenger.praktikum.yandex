@@ -58,5 +58,27 @@
 - `npm run lint` или  `yarn lint` — сборка стабильной версии. Общая команда для последовательного запуска линтирования
 
 
+### Важно
 
+Информация для ревьювера.
+У меня не проходят тесты на pre-commit, а именно:
+```
+@test "Check pre-commit hook installed" {
+    if [[ "$SPRINT" != "sprint_4" ]]; then
+        skip
+    fi
+
+    run ls -1 `git rev-parse --git-path hooks`
+    [ "$status" -eq 0 ] || fatal "$output" # list hooks
+    [[ "$output" =~ (pre-commit$) ]] || fatal "$output" # Check pre-commit hook
+}
+```
+
+Насколько я понял, то команда `ls -1` используется для вывода содержимого директории `git rev-parse --git-path hooks` в формате списка и далее проверяет по регулярному `(pre-commit$)` выражению наличие `pre-commit`.
+
+В [данном PR](https://github.com/Damir-prg/middle.messenger.praktikum.yandex/pull/9) я пытался вывести все файлы хуков husky, убрав .gitignore, но даже так тест не отрабатывал.
+
+В "Пачке" уже был подобный случай и там, наставник Николай Елисеев, посоветовал студенту сдать спринт так, без этого теста, оставив сообщение для ревьювера.
+
+Локально тесты и pre-commit отрабатывают. Pre-commit так же проверял как во встроенном инструменте VS Code, так и локально через терминал.
 
